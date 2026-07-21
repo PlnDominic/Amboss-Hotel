@@ -1,0 +1,103 @@
+import Link from 'next/link';
+import ImagePlaceholder from '@/components/ImagePlaceholder';
+import RoomTabsSection from '@/components/RoomTabsSection';
+
+export default function HomePage() {
+  return (
+    <main>
+      <section className="grid grid-cols-1 items-center gap-11 px-12 pt-14 md:grid-cols-[0.95fr_1.05fr]">
+        <div>
+          <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-brand-line bg-white px-4.5 py-2.5 shadow-[0_6px_18px_rgba(20,15,10,0.06)]">
+            <span className="text-[15px] text-brand-ink">★</span>
+            <div className="leading-[1.2]">
+              <div className="text-[13px] font-bold text-brand-ink">4.5 Rating</div>
+              <div className="text-[11px] text-brand-muted-2">by our recent guests</div>
+            </div>
+          </div>
+          <div className="mb-5.5 font-display text-[54px] leading-[1.15] font-extrabold text-brand-ink">
+            Find your
+            <br />
+            best stay.
+          </div>
+          <div className="mb-7.5 max-w-[440px] text-base leading-[1.7] text-brand-muted">
+            On arrival you&apos;re welcomed into a spacious, modern air-conditioned home in Santasi Apre,
+            Kumasi — 14 well-appointed rooms built for corporate travel and easy getaways alike.
+          </div>
+          <div className="mb-8.5 flex gap-3">
+            <a
+              href="tel:+233541886633"
+              className="rounded-full bg-brand-bg px-6.5 py-3.5 text-[15px] font-semibold text-brand-ink"
+            >
+              Call Us
+            </a>
+            <Link
+              href="/contact"
+              className="flex items-center gap-2.5 rounded-full bg-brand-accent px-6.5 py-3.5 text-[15px] font-semibold text-white"
+            >
+              Book Now
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[13px] text-brand-accent">
+                →
+              </span>
+            </Link>
+          </div>
+          <div className="mb-3.5 text-xs tracking-[0.08em] text-brand-muted-3 uppercase">Why guests choose us</div>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-brand-ink">
+            <span>Pool Deck</span>
+            <span className="text-brand-tick">·</span>
+            <span>Free Breakfast</span>
+            <span className="text-brand-tick">·</span>
+            <span>Free Wi‑Fi</span>
+            <span className="text-brand-tick">·</span>
+            <span>Air Conditioning</span>
+          </div>
+        </div>
+        <ImagePlaceholder label="Hero photo of hotel interior/exterior" className="h-[480px]" />
+      </section>
+
+      <section className="grid grid-cols-1 gap-5 px-12 py-14 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.15fr_1fr]">
+        <div className="min-w-0">
+          <div className="relative">
+            <ImagePlaceholder label="Single room photo" />
+            <div className="absolute top-3 right-3 flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white text-[13px]">
+              ★
+            </div>
+          </div>
+          <div className="mt-3.5 text-[15px] font-bold">Single Room</div>
+          <div className="mt-0.5 text-[13px] text-brand-muted-2">Santasi Apre, Kumasi</div>
+        </div>
+        <div className="min-w-0">
+          <div className="relative">
+            <ImagePlaceholder label="Double room photo" />
+            <div className="absolute top-3 right-3 flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white text-[13px]">
+              ★
+            </div>
+          </div>
+          <div className="mt-3.5 text-[15px] font-bold">Double Room</div>
+          <div className="mt-0.5 text-[13px] text-brand-muted-2">Santasi Apre, Kumasi</div>
+        </div>
+        <div className="flex min-w-0 flex-col justify-between rounded-[20px] bg-brand-surface p-7">
+          <div>
+            <div className="mb-3.5 text-[11px] tracking-[0.1em] text-brand-muted-3 uppercase">Anboss Hotel</div>
+            <div className="font-display text-[22px] leading-[1.35] font-bold text-brand-ink">
+              Best option to stay for your Kumasi business trip or getaway
+            </div>
+          </div>
+          <Link href="/rooms" className="mt-6 flex items-center gap-2.5 text-sm font-semibold text-brand-ink">
+            Explore More
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-accent text-xs text-white">
+              →
+            </span>
+          </Link>
+        </div>
+        <ImagePlaceholder label="Twin room photo" className="h-full min-w-0" />
+      </section>
+
+      <section className="px-12 pt-5 text-center">
+        <div className="mb-3.5 text-xs tracking-[0.12em] text-brand-muted-3 uppercase">Accommodation Layout</div>
+        <div className="font-display text-[56px] leading-none font-extrabold text-brand-ink">rooms</div>
+      </section>
+
+      <RoomTabsSection />
+    </main>
+  );
+}

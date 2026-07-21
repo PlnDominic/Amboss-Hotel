@@ -1,46 +1,15 @@
 interface LogoProps {
   dark?: boolean;
-  onClick?: () => void;
 }
 
-export default function Logo({ dark, onClick }: LogoProps) {
+export default function Logo({ dark }: LogoProps) {
   return (
-    <div
-      style={{ display: 'flex', alignItems: 'center', gap: 9, cursor: onClick ? 'pointer' : 'default' }}
-      onClick={onClick}
-    >
-      <div style={{ position: 'relative', width: 26, height: 23, flex: 'none' }}>
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: 0,
-            height: 0,
-            borderLeft: '13px solid transparent',
-            borderRight: '13px solid transparent',
-            borderBottom: '12px solid #b3202f',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            top: 10,
-            left: 5,
-            width: 16,
-            height: 12,
-            background: dark ? '#f1ece3' : '#14110f',
-          }}
-        />
+    <div className="flex items-center gap-2.5">
+      <div className="relative h-[23px] w-[26px] flex-none">
+        <div className="absolute top-0 left-0 h-0 w-0 border-x-[13px] border-b-[12px] border-x-transparent border-b-brand-accent" />
+        <div className={`absolute top-2.5 left-[5px] h-3 w-4 ${dark ? 'bg-brand-bg' : 'bg-brand-ink'}`} />
       </div>
-      <div
-        style={{
-          fontFamily: "'Archivo', sans-serif",
-          fontWeight: 800,
-          fontSize: dark ? 19 : 18,
-          color: dark ? '#ffffff' : '#14110f',
-        }}
-      >
+      <div className={`font-display font-extrabold ${dark ? 'text-[19px] text-white' : 'text-[18px] text-brand-ink'}`}>
         anboss
       </div>
     </div>

@@ -1,105 +1,57 @@
-import type { CSSProperties } from 'react';
-import type { Page } from '../types';
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Logo from './Logo';
 
-interface HeaderProps {
-  page: Page;
-  onNavigate: (page: Page) => void;
-}
-
-const NAV_ITEMS: { key: Page; label: string }[] = [
-  { key: 'home', label: 'Home' },
-  { key: 'rooms', label: 'Rooms' },
-  { key: 'amenities', label: 'Amenities' },
-  { key: 'contact', label: 'Contact' },
+const NAV_ITEMS = [
+  { href: '/', label: 'Home' },
+  { href: '/rooms', label: 'Rooms' },
+  { href: '/amenities', label: 'Amenities' },
+  { href: '/contact', label: 'Contact' },
 ];
 
-export default function Header({ page, onNavigate }: HeaderProps) {
-  const navStyle = (key: Page): CSSProperties => ({
-    padding: '6px 2px',
-    fontSize: 15,
-    fontWeight: 600,
-    color: page === key ? '#b3202f' : '#14110f',
-    borderBottom: page === key ? '2px solid #b3202f' : '2px solid transparent',
-    cursor: 'pointer',
-    background: 'none',
-    border: 'none',
-  });
+export default function Header() {
+  const pathname = usePathname();
 
   return (
-    <header style={{ position: 'sticky', top: 16, zIndex: 50 }}>
-      <div
-        style={{
-          margin: '16px 24px 0',
-          background: '#ffffff',
-          borderRadius: 100,
-          boxShadow: '0 4px 24px rgba(20,15,10,0.08)',
-          border: '1px solid #f0e9dd',
-          padding: '12px 26px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 20,
-          flexWrap: 'wrap',
-        }}
-      >
-        <Logo onClick={() => onNavigate('home')} />
-        <nav className="site-nav" style={{ display: 'flex', alignItems: 'center', gap: 26 }}>
-          {NAV_ITEMS.map((item) => (
-            <button key={item.key} style={navStyle(item.key)} onClick={() => onNavigate(item.key)}>
-              {item.label}
-            </button>
-          ))}
+    <header className="sticky top-4 z-50">
+      <div className="mx-6 mt-4 flex flex-wrap items-center justify-between gap-5 rounded-full border border-brand-line bg-white px-6.5 py-3 shadow-[0_4px_24px_rgba(20,15,10,0.08)]">
+        <Link href="/" className="flex items-center gap-2.5">
+          <Logo />
+        </Link>
+        <nav className="order-3 flex w-full items-center justify-center gap-6.5 md:order-none md:w-auto">
+          {NAV_ITEMS.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`border-b-2 py-1.5 text-[15px] font-semibold ${
+                  active ? 'border-brand-accent text-brand-accent' : 'border-transparent text-brand-ink'
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div className="flex items-center gap-2.5">
           <a
             href="tel:+233541886633"
-            style={{
-              background: '#f1ece3',
-              color: '#14110f',
-              padding: '10px 20px',
-              borderRadius: 100,
-              fontWeight: 600,
-              fontSize: 14,
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-            }}
+            className="whitespace-nowrap rounded-full bg-brand-bg px-5 py-2.5 text-sm font-semibold text-brand-ink"
           >
             Call Us
           </a>
-          <button
-            onClick={() => onNavigate('contact')}
-            style={{
-              background: '#b3202f',
-              color: '#fff',
-              border: 'none',
-              padding: '10px 22px',
-              borderRadius: 100,
-              fontWeight: 600,
-              fontSize: 14,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 8,
-            }}
+          <Link
+            href="/contact"
+            className="flex items-center gap-2 rounded-full bg-brand-accent px-5.5 py-2.5 text-sm font-semibold text-white"
           >
             Book Now
-            <span
-              style={{
-                width: 20,
-                height: 20,
-                borderRadius: '50%',
-                background: '#fff',
-                color: '#b3202f',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 12,
-              }}
-            >
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-xs text-brand-accent">
               →
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </header>

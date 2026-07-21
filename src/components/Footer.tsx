@@ -1,93 +1,44 @@
-import type { Page } from '../types';
+import Link from 'next/link';
 import Logo from './Logo';
 
-interface FooterProps {
-  onNavigate: (page: Page) => void;
-}
-
-const LINKS: { key: Page; label: string }[] = [
-  { key: 'home', label: 'Home' },
-  { key: 'rooms', label: 'Rooms' },
-  { key: 'amenities', label: 'Amenities' },
-  { key: 'contact', label: 'Contact' },
+const LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/rooms', label: 'Rooms' },
+  { href: '/amenities', label: 'Amenities' },
+  { href: '/contact', label: 'Contact' },
 ];
 
-export default function Footer({ onNavigate }: FooterProps) {
+export default function Footer() {
   return (
-    <footer style={{ background: '#14110f', padding: '56px 48px 0', borderRadius: '36px 36px 0 0' }}>
-      <div
-        style={{
-          maxWidth: 1180,
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1.3fr 1fr 1fr',
-          gap: 48,
-          paddingBottom: 40,
-          borderBottom: '1px solid #2a2521',
-        }}
-        className="contact-grid"
-      >
+    <footer className="rounded-t-[36px] bg-brand-ink px-12 pt-14">
+      <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-12 border-b border-brand-dark-surface pb-10 md:grid-cols-[1.3fr_1fr_1fr]">
         <div>
-          <div style={{ marginBottom: 14 }}>
+          <div className="mb-3.5">
             <Logo dark />
           </div>
-          <div style={{ fontSize: 14, color: '#a89f97', lineHeight: 1.7, maxWidth: 320 }}>
+          <div className="max-w-[320px] text-sm leading-[1.7] text-brand-muted-3">
             An unforgettable stay in Santasi Apre, Kumasi — modern, air-conditioned rooms and warm
             hospitality for business and leisure travellers alike.
           </div>
         </div>
         <div>
-          <div
-            style={{
-              fontSize: 12,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: '#e0616f',
-              fontWeight: 700,
-              marginBottom: 16,
-            }}
-          >
-            Explore
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div className="mb-4 text-xs font-bold tracking-[0.08em] text-brand-footer-heading uppercase">Explore</div>
+          <div className="flex flex-col gap-2.5">
             {LINKS.map((link) => (
-              <button
-                key={link.key}
-                onClick={() => onNavigate(link.key)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: '#e6ded5',
-                  fontSize: 14,
-                  textAlign: 'left',
-                  padding: 0,
-                  cursor: 'pointer',
-                }}
-              >
+              <Link key={link.href} href={link.href} className="text-left text-sm text-brand-footer-text">
                 {link.label}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
         <div>
-          <div
-            style={{
-              fontSize: 12,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: '#e0616f',
-              fontWeight: 700,
-              marginBottom: 16,
-            }}
-          >
-            Contact
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14, color: '#e6ded5', lineHeight: 1.6 }}>
+          <div className="mb-4 text-xs font-bold tracking-[0.08em] text-brand-footer-heading uppercase">Contact</div>
+          <div className="flex flex-col gap-2 text-sm leading-[1.6] text-brand-footer-text">
             <div>+233 (0)541‑886633</div>
             <div>+233 (0)244‑162843</div>
             <div>+233 (0)201‑868887</div>
             <div>
-              <a href="mailto:info@anbosshotel.com" style={{ color: '#e6ded5' }}>
+              <a href="mailto:info@anbosshotel.com" className="text-brand-footer-text">
                 info@anbosshotel.com
               </a>
             </div>
@@ -95,7 +46,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
         </div>
       </div>
-      <div style={{ maxWidth: 1180, margin: '0 auto', padding: '20px 0', fontSize: 13, color: '#8a8279', textAlign: 'center' }}>
+      <div className="mx-auto max-w-[1180px] py-5 text-center text-[13px] text-brand-muted-2">
         © {new Date().getFullYear()} Anboss Hotel. All rights reserved.
       </div>
     </footer>

@@ -1,5 +1,3 @@
-export type Page = 'home' | 'rooms' | 'amenities' | 'contact';
-
 export type RoomKey = 'single' | 'double' | 'twin';
 
 export interface RoomInfo {
@@ -15,7 +13,7 @@ export interface RoomInfo {
   tags: string[];
 }
 
-export interface ContactForm {
+export interface ContactFormValues {
   name: string;
   email: string;
   phone: string;
