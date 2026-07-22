@@ -38,7 +38,7 @@ export default function ContactPage() {
           <iframe
             title="Anboss Hotel location map"
             src="https://www.google.com/maps?q=Santasi+Apre,+Kumasi,+Ghana&output=embed"
-            className="h-[260px] w-full rounded-[20px] border-0"
+            className="h-[260px] w-full border-0"
             loading="lazy"
           />
         </div>

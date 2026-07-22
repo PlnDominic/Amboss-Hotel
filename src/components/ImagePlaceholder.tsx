@@ -8,7 +8,7 @@ export default function ImagePlaceholder({ label, className = 'h-[220px]' }: Ima
     <div
       role="img"
       aria-label={label}
-      className={`flex w-full flex-col items-center justify-center gap-2.5 rounded-[20px] border border-brand-line bg-gradient-to-br from-brand-surface to-[#e8e8e8] p-4 text-center text-brand-muted-3 ${className}`}
+      className={`flex w-full flex-col items-center justify-center gap-2.5 border border-brand-line bg-gradient-to-br from-brand-surface to-[#e8e8e8] p-4 text-center text-brand-muted-3 ${className}`}
     >
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <rect x="2" y="4" width="20" height="16" rx="2.5" stroke="#979797" strokeWidth="1.5" />
