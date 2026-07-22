@@ -8,10 +8,10 @@ export default function RoomsShowcase() {
       {rooms.map((room) => (
         <div
           key={room.key}
-          className="flex flex-col overflow-hidden rounded-3xl border border-brand-line bg-white shadow-[0_4px_20px_rgba(20,15,10,0.05)]"
+          className="flex flex-col rounded-3xl border border-brand-line bg-white p-3 shadow-[0_4px_20px_rgba(20,15,10,0.05)]"
         >
           <RoomImage room={room} className="h-[220px]" />
-          <div className="flex flex-1 flex-col p-6">
+          <div className="flex flex-1 flex-col px-3 pt-5 pb-3">
             <div className="mb-1 flex items-baseline justify-between gap-3">
               <div className="font-display text-lg font-bold text-brand-ink">{room.name}</div>
               <div className="whitespace-nowrap text-right text-sm font-bold text-brand-accent">
