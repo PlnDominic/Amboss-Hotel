@@ -17,12 +17,10 @@ export default function BookingPage() {
           Choose a room, pick your dates, and we&apos;ll confirm your reservation directly.
         </div>
       </section>
-      <section className="mx-auto max-w-[640px] px-12 pb-20">
-        <div className="rounded-3xl bg-brand-surface p-9">
-          <Suspense fallback={<div className="text-center text-brand-muted">Loading…</div>}>
-            <BookingForm />
-          </Suspense>
-        </div>
+      <section className="mx-auto max-w-[1180px] px-12 pb-20">
+        <Suspense fallback={<div className="text-center text-brand-muted">Loading…</div>}>
+          <BookingForm />
+        </Suspense>
       </section>
     </main>
   );
