@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import RoomTabsSection from '@/components/RoomTabsSection';
@@ -6,28 +7,36 @@ import { galleryImages } from '@/data/gallery';
 export default function HomePage() {
   return (
     <main>
-      <section className="grid grid-cols-1 items-center gap-11 px-12 pt-14 md:grid-cols-[0.95fr_1.05fr]">
-        <div>
-          <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-brand-line bg-white px-4.5 py-2.5 shadow-[0_6px_18px_rgba(20,15,10,0.06)]">
+      <section className="relative flex min-h-[480px] w-full flex-col justify-end overflow-hidden px-8 pb-12 md:min-h-[560px] md:px-14 md:pb-16">
+        <Image
+          src="/hero-exterior.webp"
+          alt="Anboss Hotel exterior"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/0" />
+        <div className="relative z-10 max-w-[560px]">
+          <div className="mb-7 inline-flex items-center gap-2.5 rounded-full bg-white px-4.5 py-2.5 shadow-[0_6px_18px_rgba(0,0,0,0.15)]">
             <span className="text-[15px] text-brand-ink">★</span>
             <div className="leading-[1.2]">
               <div className="text-[13px] font-bold text-brand-ink">4.5 Rating</div>
               <div className="text-[11px] text-brand-muted-2">by our recent guests</div>
             </div>
           </div>
-          <div className="mb-5.5 font-display text-[54px] leading-[1.15] font-extrabold text-brand-ink">
+          <div className="mb-5.5 font-display text-[54px] leading-[1.15] font-extrabold text-white">
             Find your
             <br />
             best stay.
           </div>
-          <div className="mb-7.5 max-w-[440px] text-base leading-[1.7] text-brand-muted">
+          <div className="mb-7.5 max-w-[440px] text-base leading-[1.7] text-white/85">
             On arrival you&apos;re welcomed into a spacious, modern air-conditioned home in Santasi Apre,
             Kumasi, with 14 well-appointed rooms built for corporate travel and easy getaways alike.
           </div>
           <div className="mb-8.5 flex gap-3">
             <a
               href="tel:+233541886633"
-              className="rounded-full bg-brand-muted-bg px-6.5 py-3.5 text-[15px] font-semibold text-brand-ink"
+              className="rounded-full bg-white px-6.5 py-3.5 text-[15px] font-semibold text-brand-ink"
             >
               Call Us
             </a>
@@ -41,18 +50,17 @@ export default function HomePage() {
               </span>
             </Link>
           </div>
-          <div className="mb-3.5 text-xs tracking-[0.08em] text-brand-muted-3 uppercase">Why guests choose us</div>
-          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-brand-ink">
+          <div className="mb-3.5 text-xs tracking-[0.08em] text-white/70 uppercase">Why guests choose us</div>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-white">
             <span>Pool Deck</span>
-            <span className="text-brand-tick">·</span>
+            <span className="text-white/40">·</span>
             <span>Free Breakfast</span>
-            <span className="text-brand-tick">·</span>
+            <span className="text-white/40">·</span>
             <span>Free Wi‑Fi</span>
-            <span className="text-brand-tick">·</span>
+            <span className="text-white/40">·</span>
             <span>Air Conditioning</span>
           </div>
         </div>
-        <ImagePlaceholder label="Hero photo of hotel interior/exterior" className="h-[480px]" />
       </section>
 
       <section className="grid grid-cols-1 gap-5 px-12 py-14 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.15fr_1fr]">
