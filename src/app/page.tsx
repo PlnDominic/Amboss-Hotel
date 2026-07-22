@@ -7,7 +7,7 @@ import { galleryImages } from '@/data/gallery';
 export default function HomePage() {
   return (
     <main>
-      <section className="relative flex min-h-[480px] w-full flex-col justify-end overflow-hidden px-8 pb-12 md:min-h-[560px] md:px-14 md:pb-16">
+      <section className="relative flex min-h-[620px] w-full flex-col justify-end overflow-hidden px-8 pt-32 pb-14 md:min-h-[720px] md:px-14 md:pb-20">
         <Image
           src="/hero-exterior.webp"
           alt="Anboss Hotel exterior"
@@ -15,7 +15,8 @@ export default function HomePage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/45 to-transparent" />
         <div className="relative z-10 max-w-[560px]">
           <div className="mb-5.5 font-display text-[54px] leading-[1.15] font-extrabold text-white">
             Find your
