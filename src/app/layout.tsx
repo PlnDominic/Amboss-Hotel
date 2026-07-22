@@ -17,9 +17,9 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Anboss Hotel — Santasi Apre, Kumasi',
+  title: 'Anboss Hotel in Santasi Apre, Kumasi',
   description:
-    'Anboss Hotel — modern, air-conditioned rooms in Santasi Apre, Kumasi. Book your stay for business or leisure.',
+    'Anboss Hotel offers modern, air-conditioned rooms in Santasi Apre, Kumasi. Book your stay for business or leisure.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -33,6 +33,6 @@ export const amenities: Amenity[] = [
   {
     id: 'business',
     title: 'Business & Corporate Travel',
-    description: 'A quiet, professional home base — well suited to corporate and business travellers.',
+    description: "A quiet, professional home base that's well suited to corporate and business travellers.",
   },
 ];

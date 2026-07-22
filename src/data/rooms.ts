@@ -7,7 +7,7 @@ export const rooms: RoomInfo[] = [
     location: 'Santasi Apre, Kumasi',
     homeHeadline: 'A quiet, comfortable room built for the solo traveller',
     roomsDescription:
-      'A comfortable, quiet room built for the solo traveller — ideal for corporate stays in Kumasi.',
+      'A comfortable, quiet room built for the solo traveller, ideal for corporate stays in Kumasi.',
     bedType: '1 Single',
     bathroom: 'Private',
     wifi: 'Free',
@@ -33,7 +33,7 @@ export const rooms: RoomInfo[] = [
     location: 'Santasi Apre, Kumasi',
     homeHeadline: 'Two single beds, a favourite for colleagues travelling together',
     roomsDescription:
-      'Two comfortable single beds in one room — a favourite for colleagues travelling together.',
+      'Two comfortable single beds in one room, a favourite for colleagues travelling together.',
     bedType: '2 Single',
     bathroom: 'Private',
     wifi: 'Free',

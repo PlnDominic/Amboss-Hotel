@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact — Anboss Hotel',
+  title: 'Contact Anboss Hotel',
   description: 'Get in touch with Anboss Hotel in Santasi Apre, Kumasi, or send an enquiry.',
 };
 

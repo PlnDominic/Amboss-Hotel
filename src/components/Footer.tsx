@@ -17,7 +17,7 @@ export default function Footer() {
             <Logo dark />
           </div>
           <div className="max-w-[320px] text-sm leading-[1.7] text-brand-muted-3">
-            An unforgettable stay in Santasi Apre, Kumasi — modern, air-conditioned rooms and warm
+            An unforgettable stay in Santasi Apre, Kumasi, with modern, air-conditioned rooms and warm
             hospitality for business and leisure travellers alike.
           </div>
         </div>

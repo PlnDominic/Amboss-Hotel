@@ -4,7 +4,7 @@ import { rooms } from '@/data/rooms';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 
 export const metadata: Metadata = {
-  title: 'Rooms — Anboss Hotel',
+  title: 'Rooms at Anboss Hotel',
   description: '14 well-appointed single, double and twin bedrooms in Santasi Apre, Kumasi.',
 };
 
@@ -15,7 +15,7 @@ export default function RoomsPage() {
         <div className="mb-3 text-xs tracking-[0.12em] text-brand-muted-3 uppercase">Accommodation</div>
         <div className="mb-4 font-display text-[44px] font-extrabold text-brand-ink">rooms</div>
         <div className="mx-auto max-w-[600px] text-base leading-[1.7] text-brand-muted">
-          14 well-appointed single, double and twin bedrooms — each air-conditioned, modern and
+          14 well-appointed single, double and twin bedrooms, each air-conditioned, modern and
           comfortable, with bed &amp; breakfast included.
         </div>
       </section>

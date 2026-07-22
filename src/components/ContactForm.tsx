@@ -37,8 +37,8 @@ export default function ContactForm() {
       <div className="py-10 text-center">
         <div className="mb-3 font-display text-[22px] font-extrabold text-brand-ink">Thank you!</div>
         <div className="text-[15px] leading-[1.6] text-brand-muted">
-          Your enquiry has been received. We&apos;ll get back to you within 24 hours — or call us directly
-          for a faster response.
+          Your enquiry has been received. We&apos;ll get back to you within 24 hours, or you can call us
+          directly for a faster response.
         </div>
       </div>
     );

@@ -3,7 +3,7 @@ import { amenities } from '@/data/amenities';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 
 export const metadata: Metadata = {
-  title: 'Amenities — Anboss Hotel',
+  title: 'Amenities at Anboss Hotel',
   description: 'Everything you need for a relaxing stay or a productive business trip at Anboss Hotel.',
 };
 
