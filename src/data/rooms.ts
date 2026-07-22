@@ -33,21 +33,6 @@ export const rooms: RoomInfo[] = [
     image: '/room-double.webp',
   },
   {
-    key: 'twin',
-    name: 'Twin Room',
-    location: 'Santasi Apre, Kumasi',
-    homeHeadline: 'Two single beds, a favourite for colleagues travelling together',
-    roomsDescription:
-      'Two comfortable single beds in one room, a favourite for colleagues travelling together.',
-    bedType: '2 Single',
-    bathroom: 'Private',
-    wifi: 'Free',
-    breakfast: 'Included',
-    tags: ['Air-conditioned', 'Free Wi‑Fi', 'Two single beds', 'Breakfast included'],
-    pricePerNight: 550,
-    totalUnits: 3,
-  },
-  {
     key: 'deluxe',
     name: 'Deluxe Room',
     location: 'Santasi Apre, Kumasi',

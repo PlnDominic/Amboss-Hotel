@@ -22,8 +22,7 @@ export default function RoomsShowcase() {
             </div>
 
             <div className="flex flex-1 flex-col p-7">
-              <div className="mb-2 font-display text-[22px] leading-tight font-bold text-brand-ink">{room.name}</div>
-              <p className="mb-5 text-[14.5px] leading-[1.7] text-brand-muted">{room.roomsDescription}</p>
+              <div className="mb-4 font-display text-[22px] leading-tight font-bold text-brand-ink">{room.name}</div>
 
               <div className="mb-6 text-[12.5px] leading-[1.7] tracking-[0.02em] text-brand-muted-2">
                 {room.tags.slice(0, 4).join('  ·  ')}

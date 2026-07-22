@@ -28,7 +28,7 @@ export default function HomePage() {
           </div>
           <div className="mb-7.5 max-w-[440px] text-base leading-[1.7] text-white/85">
             On arrival you&apos;re welcomed into a spacious, modern air-conditioned home in Santasi Apre,
-            Kumasi, with 20 well-appointed rooms built for corporate travel and easy getaways alike.
+            Kumasi, with 17 well-appointed rooms built for corporate travel and easy getaways alike.
           </div>
           <div className="mb-8.5 flex gap-3">
             <a
@@ -61,7 +61,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 gap-5 px-12 py-14 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.15fr_1fr]">
+      <section className="grid grid-cols-1 gap-5 px-12 py-14 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.15fr]">
         <div className="min-w-0">
           <div className="relative">
             <ImagePlaceholder label="Single room photo" />
@@ -96,7 +96,6 @@ export default function HomePage() {
             </span>
           </Link>
         </div>
-        <ImagePlaceholder label="Twin room photo" className="h-full min-w-0" />
       </section>
 
       <section className="px-12 pt-8 text-center">
@@ -104,7 +103,7 @@ export default function HomePage() {
         <div className="font-display text-[56px] leading-none font-extrabold text-brand-ink">rooms</div>
         <div className="mx-auto mt-6 h-px w-14 bg-brand-accent" />
         <p className="mx-auto mt-6 max-w-[540px] text-[15px] leading-[1.7] text-brand-muted">
-          Five distinct room types, each air-conditioned and finished with care, with bed and
+          Four distinct room types, each air-conditioned and finished with care, with bed and
           breakfast included on every stay.
         </p>
       </section>

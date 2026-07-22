@@ -5,7 +5,7 @@ import RoomImage from '@/components/RoomImage';
 
 export const metadata: Metadata = {
   title: 'Rooms at Anboss Hotel',
-  description: '20 well-appointed rooms across five types in Santasi Apre, Kumasi: single, double, twin, deluxe and executive.',
+  description: '17 well-appointed rooms across four types in Santasi Apre, Kumasi: single, double, deluxe and executive.',
 };
 
 export default function RoomsPage() {
@@ -15,7 +15,7 @@ export default function RoomsPage() {
         <div className="mb-3 text-xs tracking-[0.12em] text-brand-muted-3 uppercase">Accommodation</div>
         <div className="mb-4 font-display text-[44px] font-extrabold text-brand-ink">rooms</div>
         <div className="mx-auto max-w-[600px] text-base leading-[1.7] text-brand-muted">
-          20 well-appointed rooms across five types: single, double, twin, deluxe and executive. Each is
+          17 well-appointed rooms across four types: single, double, deluxe and executive. Each is
           air-conditioned, modern and comfortable, with bed &amp; breakfast included.
         </div>
       </section>

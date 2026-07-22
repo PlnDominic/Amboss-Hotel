@@ -1,4 +1,4 @@
-export type RoomKey = 'single' | 'double' | 'twin' | 'deluxe' | 'executive';
+export type RoomKey = 'single' | 'double' | 'deluxe' | 'executive';
 
 export interface RoomInfo {
   key: RoomKey;

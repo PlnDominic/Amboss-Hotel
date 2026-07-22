@@ -4,7 +4,7 @@ import BookingForm from '@/components/BookingForm';
 
 export const metadata: Metadata = {
   title: 'Book a Room at Anboss Hotel',
-  description: 'Reserve a single, double, or twin room at Anboss Hotel in Santasi Apre, Kumasi.',
+  description: 'Reserve a single, double, deluxe or executive room at Anboss Hotel in Santasi Apre, Kumasi.',
 };
 
 export default function BookingPage() {
