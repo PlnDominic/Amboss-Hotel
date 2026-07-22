@@ -39,7 +39,7 @@ export default function Header() {
         <div className="flex items-center gap-2.5">
           <a
             href="tel:+233541886633"
-            className="whitespace-nowrap rounded-full bg-brand-bg px-5 py-2.5 text-sm font-semibold text-brand-ink"
+            className="whitespace-nowrap rounded-full bg-brand-muted-bg px-5 py-2.5 text-sm font-semibold text-brand-ink"
           >
             Call Us
           </a>

@@ -25,14 +25,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${archivo.variable} ${workSans.variable}`}>
-      <body className="bg-brand-bg font-sans text-brand-ink antialiased">
-        <div className="min-h-screen px-5 pt-5">
-          <div className="mx-auto max-w-[1300px] overflow-hidden rounded-[36px] bg-white shadow-[0_20px_60px_rgba(20,15,10,0.08)]">
-            <Header />
-            {children}
-            <Footer />
-          </div>
-          <div className="h-5" />
+      <body className="bg-white font-sans text-brand-ink antialiased">
+        <div className="mx-auto min-h-screen max-w-[1300px]">
+          <Header />
+          {children}
+          <Footer />
         </div>
       </body>
     </html>

@@ -8,14 +8,14 @@ export default function ImagePlaceholder({ label, className = 'h-[220px]' }: Ima
     <div
       role="img"
       aria-label={label}
-      className={`flex w-full flex-col items-center justify-center gap-2.5 rounded-[20px] border border-[#eadfcd] bg-gradient-to-br from-brand-surface to-[#ece3d6] p-4 text-center text-brand-muted-3 ${className}`}
+      className={`flex w-full flex-col items-center justify-center gap-2.5 rounded-[20px] border border-brand-line bg-gradient-to-br from-brand-surface to-[#e8e8e8] p-4 text-center text-brand-muted-3 ${className}`}
     >
       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="2" y="4" width="20" height="16" rx="2.5" stroke="#a89f97" strokeWidth="1.5" />
-        <circle cx="8" cy="10" r="1.8" stroke="#a89f97" strokeWidth="1.5" />
+        <rect x="2" y="4" width="20" height="16" rx="2.5" stroke="#979797" strokeWidth="1.5" />
+        <circle cx="8" cy="10" r="1.8" stroke="#979797" strokeWidth="1.5" />
         <path
           d="M3 17l5.5-5.5a1.5 1.5 0 0 1 2.12 0L14 15l2-2a1.5 1.5 0 0 1 2.12 0L21 16"
-          stroke="#a89f97"
+          stroke="#979797"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"

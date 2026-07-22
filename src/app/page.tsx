@@ -26,7 +26,7 @@ export default function HomePage() {
           <div className="mb-8.5 flex gap-3">
             <a
               href="tel:+233541886633"
-              className="rounded-full bg-brand-bg px-6.5 py-3.5 text-[15px] font-semibold text-brand-ink"
+              className="rounded-full bg-brand-muted-bg px-6.5 py-3.5 text-[15px] font-semibold text-brand-ink"
             >
               Call Us
             </a>
