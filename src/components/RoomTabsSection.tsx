@@ -13,14 +13,14 @@ export default function RoomTabsSection() {
   return (
     <>
       <section className="px-12 pt-10">
-        <div className="mx-auto grid max-w-[640px] grid-cols-3 gap-1.5 rounded-full bg-brand-surface p-2">
+        <div className="mx-auto flex max-w-[760px] flex-wrap justify-center gap-1.5 rounded-[28px] bg-brand-surface p-2 sm:rounded-full">
           {rooms.map((room) => {
             const active = roomTab === room.key;
             return (
               <button
                 key={room.key}
                 onClick={() => setRoomTab(room.key)}
-                className={`rounded-full py-2.5 text-sm font-semibold ${
+                className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold whitespace-nowrap ${
                   active ? 'bg-brand-accent text-white' : 'bg-transparent text-brand-muted'
                 }`}
               >

@@ -28,7 +28,7 @@ export default function HomePage() {
           </div>
           <div className="mb-7.5 max-w-[440px] text-base leading-[1.7] text-white/85">
             On arrival you&apos;re welcomed into a spacious, modern air-conditioned home in Santasi Apre,
-            Kumasi, with 14 well-appointed rooms built for corporate travel and easy getaways alike.
+            Kumasi, with 20 well-appointed rooms built for corporate travel and easy getaways alike.
           </div>
           <div className="mb-8.5 flex gap-3">
             <a

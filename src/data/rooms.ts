@@ -47,6 +47,38 @@ export const rooms: RoomInfo[] = [
     pricePerNight: 550,
     totalUnits: 3,
   },
+  {
+    key: 'deluxe',
+    name: 'Deluxe Room',
+    location: 'Santasi Apre, Kumasi',
+    homeHeadline: 'An elegant double room with classic furnishings',
+    roomsDescription:
+      'An elegant, generously sized double room with a solid wood bed frame and classic furnishings, perfect for a relaxed stay.',
+    bedType: '1 Double',
+    bathroom: 'Private',
+    wifi: 'Free',
+    breakfast: 'Included',
+    tags: ['Air-conditioned', 'Free Wi‑Fi', 'Flat-screen TV', 'Breakfast included'],
+    pricePerNight: 500,
+    totalUnits: 4,
+    image: '/room-deluxe.webp',
+  },
+  {
+    key: 'executive',
+    name: 'Executive Room',
+    location: 'Santasi Apre, Kumasi',
+    homeHeadline: 'Our most spacious room, with a mini-fridge and lounge area',
+    roomsDescription:
+      'Our most spacious and well-appointed room, featuring a queen bed, a private mini-fridge, a flat-screen TV and a relaxing lounge area, ideal for longer or executive stays.',
+    bedType: '1 Queen',
+    bathroom: 'Private',
+    wifi: 'Free',
+    breakfast: 'Included',
+    tags: ['Air-conditioned', 'Free Wi‑Fi', 'Mini-fridge', 'Flat-screen TV', 'Breakfast included'],
+    pricePerNight: 600,
+    totalUnits: 2,
+    image: '/room-executive.webp',
+  },
 ];
 
 export const getRoom = (key: string) => rooms.find((r) => r.key === key) ?? rooms[0];
