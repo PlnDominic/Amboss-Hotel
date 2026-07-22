@@ -113,7 +113,13 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:auto-rows-[180px]">
           {galleryImages.map((image, index) => {
-            const size = index === 0 ? 'col-span-2 h-[220px] sm:row-span-2 sm:h-full' : 'h-[180px] sm:h-full';
+            const isFeatured = index === 0;
+            const isBanner = index === galleryImages.length - 1;
+            const size = isFeatured
+              ? 'col-span-2 h-[220px] sm:row-span-2 sm:h-full'
+              : isBanner
+                ? 'col-span-2 h-[200px] sm:col-span-4 sm:h-full'
+                : 'h-[180px] sm:h-full';
             if (image.src) {
               return (
                 <div key={image.id} className={`relative w-full overflow-hidden ${size}`}>
