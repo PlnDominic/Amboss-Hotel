@@ -17,13 +17,6 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/0" />
         <div className="relative z-10 max-w-[560px]">
-          <div className="mb-7 inline-flex items-center gap-2.5 rounded-full bg-white px-4.5 py-2.5 shadow-[0_6px_18px_rgba(0,0,0,0.15)]">
-            <span className="text-[15px] text-brand-ink">★</span>
-            <div className="leading-[1.2]">
-              <div className="text-[13px] font-bold text-brand-ink">4.5 Rating</div>
-              <div className="text-[11px] text-brand-muted-2">by our recent guests</div>
-            </div>
-          </div>
           <div className="mb-5.5 font-display text-[54px] leading-[1.15] font-extrabold text-white">
             Find your
             <br />
