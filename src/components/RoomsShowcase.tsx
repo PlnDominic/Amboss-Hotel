@@ -4,39 +4,51 @@ import RoomImage from './RoomImage';
 
 export default function RoomsShowcase() {
   return (
-    <section className="grid grid-cols-1 gap-6 px-12 py-9 pb-16 sm:grid-cols-2 lg:grid-cols-3">
-      {rooms.map((room) => (
-        <div
-          key={room.key}
-          className="flex flex-col rounded-3xl border border-brand-line bg-white p-3 shadow-[0_4px_20px_rgba(20,15,10,0.05)]"
-        >
-          <RoomImage room={room} className="h-[220px]" />
-          <div className="flex flex-1 flex-col px-3 pt-5 pb-3">
-            <div className="mb-1 flex items-baseline justify-between gap-3">
-              <div className="font-display text-lg font-bold text-brand-ink">{room.name}</div>
-              <div className="whitespace-nowrap text-right text-sm font-bold text-brand-accent">
-                GHS {room.pricePerNight}
-                <span className="font-medium text-brand-muted-2"> / night</span>
+    <section className="px-12 py-10 pb-16">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {rooms.map((room) => (
+          <div
+            key={room.key}
+            className="group flex flex-col border border-brand-line bg-white transition-shadow duration-300 hover:shadow-[0_24px_60px_rgba(20,15,10,0.12)]"
+          >
+            <div className="relative h-[260px] overflow-hidden">
+              <RoomImage
+                room={room}
+                className="h-[260px] transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+              />
+              <div className="absolute top-4 left-4 bg-brand-ink/85 px-3 py-1.5 text-[11px] font-semibold tracking-[0.14em] text-white uppercase backdrop-blur-sm">
+                {room.bedType}
               </div>
             </div>
-            <div className="mb-4 text-[13px] font-semibold text-brand-muted-2">{room.bedType} · {room.bathroom} bathroom</div>
-            <p className="mb-4 text-sm leading-[1.6] text-brand-muted">{room.roomsDescription}</p>
-            <div className="mb-6 flex flex-wrap gap-2">
-              {room.tags.slice(0, 3).map((tag) => (
-                <span key={tag} className="rounded-full bg-brand-surface px-3 py-1.5 text-xs font-medium text-brand-ink">
-                  {tag}
-                </span>
-              ))}
+
+            <div className="flex flex-1 flex-col p-7">
+              <div className="mb-2 font-display text-[22px] leading-tight font-bold text-brand-ink">{room.name}</div>
+              <p className="mb-5 text-[14.5px] leading-[1.7] text-brand-muted">{room.roomsDescription}</p>
+
+              <div className="mb-6 text-[12.5px] leading-[1.7] tracking-[0.02em] text-brand-muted-2">
+                {room.tags.slice(0, 4).join('  ·  ')}
+              </div>
+
+              <div className="mt-auto flex items-end justify-between border-t border-brand-line pt-5">
+                <div>
+                  <div className="mb-0.5 text-[10.5px] tracking-[0.16em] text-brand-muted-3 uppercase">From</div>
+                  <div className="font-display text-2xl font-extrabold text-brand-ink">
+                    GHS {room.pricePerNight}
+                    <span className="text-[13px] font-medium text-brand-muted-2"> / night</span>
+                  </div>
+                </div>
+                <Link
+                  href={`/booking?room=${room.key}`}
+                  className="flex items-center gap-2 bg-brand-accent px-5 py-3 text-[13px] font-semibold tracking-[0.06em] text-white uppercase transition-colors hover:bg-brand-accent-hover"
+                >
+                  Reserve
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
             </div>
-            <Link
-              href={`/booking?room=${room.key}`}
-              className="mt-auto rounded-full bg-brand-accent py-3 text-center text-sm font-bold text-white transition-colors hover:bg-brand-accent-hover"
-            >
-              Book Now
-            </Link>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 }

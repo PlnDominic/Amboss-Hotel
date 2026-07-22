@@ -99,9 +99,14 @@ export default function HomePage() {
         <ImagePlaceholder label="Twin room photo" className="h-full min-w-0" />
       </section>
 
-      <section className="px-12 pt-5 text-center">
-        <div className="mb-3.5 text-xs tracking-[0.12em] text-brand-muted-3 uppercase">Accommodation Layout</div>
+      <section className="px-12 pt-8 text-center">
+        <div className="mb-4 text-xs tracking-[0.24em] text-brand-muted-3 uppercase">Accommodation</div>
         <div className="font-display text-[56px] leading-none font-extrabold text-brand-ink">rooms</div>
+        <div className="mx-auto mt-6 h-px w-14 bg-brand-accent" />
+        <p className="mx-auto mt-6 max-w-[540px] text-[15px] leading-[1.7] text-brand-muted">
+          Five distinct room types, each air-conditioned and finished with care, with bed and
+          breakfast included on every stay.
+        </p>
       </section>
 
       <RoomsShowcase />
