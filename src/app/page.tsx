@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import RoomTabsSection from '@/components/RoomTabsSection';
+import { galleryImages } from '@/data/gallery';
 
 export default function HomePage() {
   return (
@@ -98,6 +99,22 @@ export default function HomePage() {
       </section>
 
       <RoomTabsSection />
+
+      <section className="px-12 pt-4 pb-20">
+        <div className="mb-10 text-center">
+          <div className="mb-3.5 text-xs tracking-[0.12em] text-brand-muted-3 uppercase">Gallery</div>
+          <div className="font-display text-[40px] font-extrabold text-brand-ink">A closer look</div>
+        </div>
+        <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:auto-rows-[180px]">
+          {galleryImages.map((image, index) => (
+            <ImagePlaceholder
+              key={image.id}
+              label={image.label}
+              className={index === 0 ? 'col-span-2 h-[220px] sm:row-span-2 sm:h-full' : 'h-[180px] sm:h-full'}
+            />
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
