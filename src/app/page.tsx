@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import RoomImage from '@/components/RoomImage';
-import RoomTabsSection from '@/components/RoomTabsSection';
+import RoomsShowcase from '@/components/RoomsShowcase';
 import { galleryImages } from '@/data/gallery';
 import { getRoom } from '@/data/rooms';
 
@@ -104,7 +104,7 @@ export default function HomePage() {
         <div className="font-display text-[56px] leading-none font-extrabold text-brand-ink">rooms</div>
       </section>
 
-      <RoomTabsSection />
+      <RoomsShowcase />
 
       <section className="px-12 pt-4 pb-20">
         <div className="mb-10 text-center">
