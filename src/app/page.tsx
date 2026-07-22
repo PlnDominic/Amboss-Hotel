@@ -114,13 +114,17 @@ export default function HomePage() {
           <div className="font-display text-[40px] font-extrabold text-brand-ink">A closer look</div>
         </div>
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:auto-rows-[180px]">
-          {galleryImages.map((image, index) => (
-            <ImagePlaceholder
-              key={image.id}
-              label={image.label}
-              className={index === 0 ? 'col-span-2 h-[220px] sm:row-span-2 sm:h-full' : 'h-[180px] sm:h-full'}
-            />
-          ))}
+          {galleryImages.map((image, index) => {
+            const size = index === 0 ? 'col-span-2 h-[220px] sm:row-span-2 sm:h-full' : 'h-[180px] sm:h-full';
+            if (image.src) {
+              return (
+                <div key={image.id} className={`relative w-full overflow-hidden ${size}`}>
+                  <Image src={image.src} alt={image.label} fill className="object-cover" />
+                </div>
+              );
+            }
+            return <ImagePlaceholder key={image.id} label={image.label} className={size} />;
+          })}
         </div>
       </section>
     </main>
