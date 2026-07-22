@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { rooms } from '@/data/rooms';
-import ImagePlaceholder from '@/components/ImagePlaceholder';
+import RoomImage from '@/components/RoomImage';
 
 export const metadata: Metadata = {
   title: 'Rooms at Anboss Hotel',
@@ -25,10 +25,13 @@ export default function RoomsPage() {
         const isFirst = index === 0;
         const isLast = index === rooms.length - 1;
 
-        const image = <ImagePlaceholder label={`${room.name} photo`} className="h-[340px]" />;
+        const image = <RoomImage room={room} className="h-[340px]" />;
         const details = (
           <div>
-            <div className="mb-3.5 font-display text-2xl font-bold text-brand-ink">{room.name}</div>
+            <div className="mb-1.5 font-display text-2xl font-bold text-brand-ink">{room.name}</div>
+            <div className="mb-4 text-sm font-semibold text-brand-accent">
+              GHS {room.pricePerNight.toLocaleString()} / night
+            </div>
             <p className="mb-5 text-[15px] leading-[1.75] text-brand-muted">{room.roomsDescription}</p>
             <div className="mb-6.5 flex flex-wrap gap-2.5">
               {room.tags.map((tag) => (
@@ -38,10 +41,10 @@ export default function RoomsPage() {
               ))}
             </div>
             <Link
-              href="/contact"
+              href={`/booking?room=${room.key}`}
               className="inline-block rounded-full bg-brand-accent px-6.5 py-3 text-sm font-semibold text-white"
             >
-              Enquire
+              Book Now
             </Link>
           </div>
         );

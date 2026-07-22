@@ -17,6 +17,11 @@ build
 next-env.d.ts
 
 *.local
+.env
+.env*.local
+
+# Runtime booking data (created automatically, not source-controlled)
+/data/bookings.json
 
 # Editor directories and files
 .vscode/*

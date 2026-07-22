@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
@@ -13,6 +14,13 @@ export default function ContactPage() {
         <div>
           <div className="mb-3 text-xs tracking-[0.12em] text-brand-muted-3 uppercase">Get In Touch</div>
           <div className="mb-6 font-display text-[32px] font-extrabold text-brand-ink">Contact Us</div>
+          <div className="mb-7 rounded-2xl bg-brand-surface p-5 text-[15px] leading-[1.6] text-brand-muted">
+            Looking to reserve a room?{' '}
+            <Link href="/booking" className="font-semibold text-brand-accent">
+              Book directly here
+            </Link>{' '}
+            for live availability and pricing.
+          </div>
           <div className="mb-7 flex flex-col gap-4.5 text-[15px] leading-[1.7] text-brand-muted">
             <div>
               <span className="font-bold text-brand-ink">Tel:</span>{' '}

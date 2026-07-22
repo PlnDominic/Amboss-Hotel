@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import type { RoomKey } from '@/types';
 import { getRoom, rooms } from '@/data/rooms';
-import ImagePlaceholder from './ImagePlaceholder';
+import RoomImage from './RoomImage';
 
 export default function RoomTabsSection() {
   const [roomTab, setRoomTab] = useState<RoomKey>('single');
@@ -32,7 +32,7 @@ export default function RoomTabsSection() {
       </section>
 
       <section className="grid grid-cols-1 gap-6 px-12 py-9 pb-16 md:grid-cols-[0.9fr_1fr_0.9fr]">
-        <ImagePlaceholder label={`${activeRoom.name} photo`} className="h-[340px]" />
+        <RoomImage room={activeRoom} className="h-[340px]" />
         <div className="flex flex-col justify-between rounded-3xl bg-brand-surface p-8">
           <div>
             <div className="mb-3 text-[11px] tracking-[0.1em] text-brand-muted-3 uppercase">Anboss Hotel</div>
@@ -61,6 +61,10 @@ export default function RoomTabsSection() {
                 <span className="text-brand-muted-2">Breakfast</span>
                 <span className="font-semibold">{activeRoom.breakfast}</span>
               </div>
+              <div className="flex justify-between border-t border-brand-line pt-2.5">
+                <span className="text-brand-muted-2">Rate</span>
+                <span className="font-semibold text-brand-accent">GHS {activeRoom.pricePerNight}/night</span>
+              </div>
             </div>
           </div>
         </div>
@@ -86,7 +90,7 @@ export default function RoomTabsSection() {
             </div>
           </div>
           <Link
-            href="/contact"
+            href={`/booking?room=${activeRoom.key}`}
             className="mt-6.5 rounded-full bg-brand-accent py-3.5 text-center text-sm font-bold text-white"
           >
             Book Now!

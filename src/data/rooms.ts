@@ -13,6 +13,8 @@ export const rooms: RoomInfo[] = [
     wifi: 'Free',
     breakfast: 'Included',
     tags: ['Air-conditioned', 'Free Wi‑Fi', 'Work desk', 'Breakfast included'],
+    pricePerNight: 350,
+    totalUnits: 6,
   },
   {
     key: 'double',
@@ -26,6 +28,9 @@ export const rooms: RoomInfo[] = [
     wifi: 'Free',
     breakfast: 'Included',
     tags: ['Air-conditioned', 'Free Wi‑Fi', 'Flat-screen TV', 'Breakfast included'],
+    pricePerNight: 500,
+    totalUnits: 5,
+    image: '/room-double.webp',
   },
   {
     key: 'twin',
@@ -39,6 +44,8 @@ export const rooms: RoomInfo[] = [
     wifi: 'Free',
     breakfast: 'Included',
     tags: ['Air-conditioned', 'Free Wi‑Fi', 'Two single beds', 'Breakfast included'],
+    pricePerNight: 550,
+    totalUnits: 3,
   },
 ];
 

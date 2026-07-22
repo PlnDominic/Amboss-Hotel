@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
+import RoomImage from '@/components/RoomImage';
 import RoomTabsSection from '@/components/RoomTabsSection';
 import { galleryImages } from '@/data/gallery';
+import { getRoom } from '@/data/rooms';
 
 export default function HomePage() {
   return (
@@ -36,7 +38,7 @@ export default function HomePage() {
               Call Us
             </a>
             <Link
-              href="/contact"
+              href="/booking"
               className="flex items-center gap-2.5 rounded-full bg-brand-accent px-6.5 py-3.5 text-[15px] font-semibold text-white"
             >
               Book Now
@@ -72,7 +74,7 @@ export default function HomePage() {
         </div>
         <div className="min-w-0">
           <div className="relative">
-            <ImagePlaceholder label="Double room photo" />
+            <RoomImage room={getRoom('double')} />
             <div className="absolute top-3 right-3 flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white text-[13px]">
               ★
             </div>
