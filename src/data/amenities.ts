@@ -2,6 +2,7 @@ export interface Amenity {
   id: string;
   title: string;
   description: string;
+  src?: string;
 }
 
 export const amenities: Amenity[] = [
@@ -9,6 +10,7 @@ export const amenities: Amenity[] = [
     id: 'pool',
     title: 'Pool Deck',
     description: 'A stylish pool deck to relax in the afternoon sun with an ice-cold drink.',
+    src: '/pool-deck.webp',
   },
   {
     id: 'gym',

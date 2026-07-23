@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { amenities } from '@/data/amenities';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 
@@ -20,7 +21,13 @@ export default function AmenitiesPage() {
       <section className="grid grid-cols-1 gap-7 px-12 pt-9 pb-20 sm:grid-cols-2 md:grid-cols-3">
         {amenities.map((amenity) => (
           <div key={amenity.id}>
-            <ImagePlaceholder label={`${amenity.title} photo`} />
+            {amenity.src ? (
+              <div className="relative h-[220px] w-full overflow-hidden">
+                <Image src={amenity.src} alt={`${amenity.title} photo`} fill className="object-cover" />
+              </div>
+            ) : (
+              <ImagePlaceholder label={`${amenity.title} photo`} />
+            )}
             <div className="mt-4 text-[17px] font-bold text-brand-ink">{amenity.title}</div>
             <div className="mt-1.5 text-sm leading-[1.6] text-brand-muted-2">{amenity.description}</div>
           </div>
