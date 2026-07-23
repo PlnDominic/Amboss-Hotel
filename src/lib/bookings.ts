@@ -1,10 +1,17 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { rooms } from '@/data/rooms';
 import type { Booking, BookingStatus, RoomKey } from '@/types';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+// Vercel's serverless functions run against a read-only deployment bundle —
+// process.cwd() cannot be written to there, so writes must go to the OS temp
+// directory instead. This is still not durable storage: each cold start on
+// Vercel gets a fresh, empty /tmp, so bookings won't survive a redeploy or a
+// new function instance. A real database is required for that; this only
+// keeps the booking form from crashing with a 500 on Vercel.
+const DATA_DIR = process.env.VERCEL ? path.join(os.tmpdir(), 'anboss-hotel-data') : path.join(process.cwd(), 'data');
 const DATA_FILE = path.join(DATA_DIR, 'bookings.json');
 
 function ensureStore(): void {

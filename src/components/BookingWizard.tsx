@@ -5,49 +5,15 @@ import type { Booking, RoomKey } from '@/types';
 import { rooms } from '@/data/rooms';
 import RoomImage from '@/components/RoomImage';
 
-interface Addon {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  priceType: 'flat' | 'per-night' | 'per-guest';
-}
-
-const ADDONS: Addon[] = [
-  {
-    id: 'tour',
-    name: 'Guided City Tour',
-    price: 120,
-    description: 'A half-day guided tour of Kumasi’s historic landmarks and cultural centers.',
-    priceType: 'per-guest',
-  },
-  {
-    id: 'checkout',
-    name: 'Late Check-out',
-    price: 80,
-    description: 'Keep your room until 4:00 PM on departure day instead of the standard 12:00 PM.',
-    priceType: 'flat',
-  },
-  {
-    id: 'laundry',
-    name: 'Laundry Service',
-    price: 40,
-    description: 'One bag of laundry washed, dried, and folded.',
-    priceType: 'flat',
-  },
-];
-
 interface BookingState {
   checkin: string;
   checkout: string;
   guests: number;
   selectedRoom: RoomKey | null;
-  selectedAddons: string[];
   name: string;
   email: string;
   phone: string;
   specialRequests: string;
-  paymentMethod: 'hotel' | 'momo';
 }
 
 const INITIAL_STATE: BookingState = {
@@ -55,12 +21,10 @@ const INITIAL_STATE: BookingState = {
   checkout: '',
   guests: 1,
   selectedRoom: null,
-  selectedAddons: [],
   name: '',
   email: '',
   phone: '',
   specialRequests: '',
-  paymentMethod: 'hotel',
 };
 
 export default function BookingWizard() {
@@ -98,29 +62,11 @@ export default function BookingWizard() {
   }, [state.checkin, state.checkout]);
 
   const pricingSummary = useMemo(() => {
-    if (!state.selectedRoom) return { roomTotal: 0, addonsTotal: 0, total: 0 };
+    if (!state.selectedRoom) return { total: 0 };
     const selectedRoomObj = rooms.find((r) => r.key === state.selectedRoom);
     const roomRate = selectedRoomObj ? selectedRoomObj.pricePerNight : 0;
-    const roomTotal = roomRate * (nights || 1);
-
-    const addonsTotal = state.selectedAddons.reduce((acc, addonId) => {
-      const addon = ADDONS.find((a) => a.id === addonId);
-      if (!addon) return acc;
-      if (addon.priceType === 'per-guest') {
-        return acc + addon.price * state.guests;
-      }
-      if (addon.priceType === 'per-night') {
-        return acc + addon.price * (nights || 1);
-      }
-      return acc + addon.price;
-    }, 0);
-
-    return {
-      roomTotal,
-      addonsTotal,
-      total: roomTotal + addonsTotal,
-    };
-  }, [state.selectedRoom, state.selectedAddons, state.guests, nights]);
+    return { total: roomRate * (nights || 1) };
+  }, [state.selectedRoom, nights]);
 
   const handleNext = () => {
     const currentErrors: Record<string, string> = {};
@@ -132,11 +78,6 @@ export default function BookingWizard() {
         currentErrors.checkout = 'Check-out date must be after check-in date';
       }
       if (!state.selectedRoom) currentErrors.selectedRoom = 'Please select a room type';
-    } else if (step === 3) {
-      if (!state.name.trim()) currentErrors.name = 'Full name is required';
-      if (!state.email.trim()) currentErrors.email = 'Email address is required';
-      else if (!/\S+@\S+\.\S+/.test(state.email)) currentErrors.email = 'Please enter a valid email';
-      if (!state.phone.trim()) currentErrors.phone = 'Phone number is required';
     }
 
     if (Object.keys(currentErrors).length > 0) {
@@ -153,32 +94,12 @@ export default function BookingWizard() {
     setStep((prev) => Math.max(1, prev - 1));
   };
 
-  const handleAddonToggle = (addonId: string) => {
-    setState((prev) => {
-      const isSelected = prev.selectedAddons.includes(addonId);
-      return {
-        ...prev,
-        selectedAddons: isSelected
-          ? prev.selectedAddons.filter((id) => id !== addonId)
-          : [...prev.selectedAddons, addonId],
-      };
-    });
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError('');
     setSubmitting(true);
 
-    const addonNames = state.selectedAddons
-      .map((id) => ADDONS.find((a) => a.id === id)?.name)
-      .filter((name): name is string => Boolean(name));
-    const message = [
-      state.specialRequests.trim(),
-      addonNames.length ? `Requested extras: ${addonNames.join(', ')}` : '',
-    ]
-      .filter(Boolean)
-      .join(' | ');
+    const message = state.specialRequests.trim() || undefined;
 
     try {
       const res = await fetch('/api/bookings', {
@@ -192,7 +113,7 @@ export default function BookingWizard() {
           checkIn: state.checkin,
           checkOut: state.checkout,
           guests: state.guests,
-          message: message || undefined,
+          message,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -200,14 +121,14 @@ export default function BookingWizard() {
       if (res.status === 400 && data.errors) {
         setErrors(data.errors);
         setSubmitError('Please check the highlighted details and try again.');
-        setStep(3);
+        setStep(2);
       } else if (res.status === 409) {
         setSubmitError(data.error || 'Those dates are no longer available for this room. Please try different dates or another room.');
       } else if (!res.ok) {
         setSubmitError(data.error || 'Something went wrong. Please try again.');
       } else {
         setConfirmedBooking(data.booking as Booking);
-        setStep(4);
+        setStep(3);
       }
     } catch {
       setSubmitError('Could not reach the server. Please check your connection and try again.');
@@ -229,24 +150,23 @@ export default function BookingWizard() {
   return (
     <div className="mx-auto max-w-[1180px] px-6 py-10 md:px-12">
       {/* Step Progress Bar */}
-      {step < 4 && (
+      {step < 3 && (
         <div className="mb-10">
           <div className="flex justify-between text-xs font-semibold uppercase tracking-wider text-brand-muted-3">
             <span className={step >= 1 ? 'text-brand-accent' : ''}>1. Dates & Rooms</span>
-            <span className={step >= 2 ? 'text-brand-accent' : ''}>2. Extras</span>
-            <span className={step >= 3 ? 'text-brand-accent' : ''}>3. Personal Details</span>
+            <span className={step >= 2 ? 'text-brand-accent' : ''}>2. Personal Details</span>
           </div>
           <div className="mt-3.5 h-1.5 w-full rounded-none bg-brand-surface">
             <div
               className="h-full rounded-none bg-brand-accent transition-all duration-300"
-              style={{ width: `${((step - 1) / 2) * 100}%` }}
+              style={{ width: `${(step - 1) * 100}%` }}
             />
           </div>
         </div>
       )}
 
-      {step === 4 && confirmedBooking ? (
-        // Step 4: Success / Confirmation Screen
+      {step === 3 && confirmedBooking ? (
+        // Step 3: Success / Confirmation Screen
         <div className="mx-auto max-w-[650px] rounded-none border border-brand-line bg-white p-8 text-center shadow-sm md:p-12">
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-none bg-green-50 text-3xl text-green-600">
             ✓
@@ -417,53 +337,6 @@ export default function BookingWizard() {
             )}
 
             {step === 2 && (
-              <div>
-                <h2 className="mb-1 font-display text-2xl font-extrabold text-brand-ink">Add Extras / Customization</h2>
-                <p className="mb-6.5 text-[14px] text-brand-muted-2">
-                  Enhance your stay with our optional services tailored to make your Kumasi trip stress-free.
-                </p>
-
-                <div className="flex flex-col gap-4">
-                  {ADDONS.map((addon) => {
-                    const isSelected = state.selectedAddons.includes(addon.id);
-                    return (
-                      <div
-                        key={addon.id}
-                        onClick={() => handleAddonToggle(addon.id)}
-                        className={`flex cursor-pointer items-start gap-4.5 rounded-none border p-5 transition-all ${
-                          isSelected ? 'border-brand-accent bg-[#fffdfd]' : 'border-brand-line hover:border-brand-muted-2'
-                        }`}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={isSelected}
-                          readOnly
-                          className="mt-1 h-4.5 w-4.5 cursor-pointer accent-brand-accent"
-                        />
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between">
-                            <h4 className="font-display text-[15px] font-bold text-brand-ink">{addon.name}</h4>
-                            <span className="text-[14px] font-extrabold text-brand-accent">
-                              +GHS {addon.price}
-                              <span className="text-[11px] font-medium text-brand-muted-2">
-                                {addon.priceType === 'per-guest'
-                                  ? ' / guest'
-                                  : addon.priceType === 'per-night'
-                                    ? ' / night'
-                                    : ' flat'}
-                              </span>
-                            </span>
-                          </div>
-                          <p className="mt-1 text-[13px] leading-relaxed text-brand-muted-2">{addon.description}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {step === 3 && (
               <form onSubmit={handleSubmit}>
                 <h2 className="mb-1 font-display text-2xl font-extrabold text-brand-ink">Contact & Billing Info</h2>
                 <p className="mb-6.5 text-[14px] text-brand-muted-2">
@@ -530,50 +403,9 @@ export default function BookingWizard() {
                     />
                   </div>
 
-                  <div className="mt-2.5">
-                    <label className="mb-3 block text-xs font-bold uppercase tracking-wide text-brand-muted">
-                      Payment Option
-                    </label>
-                    <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
-                      <div
-                        onClick={() => setState((prev) => ({ ...prev, paymentMethod: 'hotel' }))}
-                        className={`flex cursor-pointer items-center justify-between rounded-none border p-4 transition-all ${
-                          state.paymentMethod === 'hotel'
-                            ? 'border-brand-accent bg-[#fffdfd]'
-                            : 'border-brand-line hover:border-brand-muted-2'
-                        }`}
-                      >
-                        <div className="leading-tight">
-                          <span className="block text-[14px] font-bold text-brand-ink">Pay at Check-in</span>
-                          <span className="text-[11px] text-brand-muted-2">No advance deposit needed</span>
-                        </div>
-                        <input
-                          type="radio"
-                          checked={state.paymentMethod === 'hotel'}
-                          readOnly
-                          className="accent-brand-accent"
-                        />
-                      </div>
-                      <div
-                        onClick={() => setState((prev) => ({ ...prev, paymentMethod: 'momo' }))}
-                        className={`flex cursor-pointer items-center justify-between rounded-none border p-4 transition-all ${
-                          state.paymentMethod === 'momo'
-                            ? 'border-brand-accent bg-[#fffdfd]'
-                            : 'border-brand-line hover:border-brand-muted-2'
-                        }`}
-                      >
-                        <div className="leading-tight">
-                          <span className="block text-[14px] font-bold text-brand-ink">Mobile Money / Card</span>
-                          <span className="text-[11px] text-brand-muted-2">Pay securely online (Demo)</span>
-                        </div>
-                        <input
-                          type="radio"
-                          checked={state.paymentMethod === 'momo'}
-                          readOnly
-                          className="accent-brand-accent"
-                        />
-                      </div>
-                    </div>
+                  <div className="mt-2.5 rounded-none border border-brand-line bg-brand-surface p-4">
+                    <span className="block text-[14px] font-bold text-brand-ink">Pay at Check-in</span>
+                    <span className="text-[12px] text-brand-muted-2">No advance deposit needed.</span>
                   </div>
                 </div>
               </form>
@@ -599,7 +431,7 @@ export default function BookingWizard() {
               ) : (
                 <div />
               )}
-              {step < 3 ? (
+              {step < 2 ? (
                 <button
                   type="button"
                   onClick={handleNext}
@@ -654,38 +486,8 @@ export default function BookingWizard() {
                       GHS {selectedRoomDetails.pricePerNight} x {nights || 1} night(s)
                     </span>
                   </div>
-                  <span className="font-bold text-brand-ink">GHS {pricingSummary.roomTotal}</span>
+                  <span className="font-bold text-brand-ink">GHS {pricingSummary.total}</span>
                 </div>
-
-                {state.selectedAddons.length > 0 && (
-                  <div className="mt-4.5 space-y-3 pt-3 border-t border-brand-line/50">
-                    <span className="block text-xs font-bold uppercase tracking-wider text-brand-muted-3">
-                      Selected Extras
-                    </span>
-                    {state.selectedAddons.map((addonId) => {
-                      const addon = ADDONS.find((a) => a.id === addonId);
-                      if (!addon) return null;
-                      let chargeDesc = `GHS ${addon.price} flat`;
-                      let chargeVal = addon.price;
-                      if (addon.priceType === 'per-guest') {
-                        chargeDesc = `GHS ${addon.price} x ${state.guests} guest(s)`;
-                        chargeVal = addon.price * state.guests;
-                      } else if (addon.priceType === 'per-night') {
-                        chargeDesc = `GHS ${addon.price} x ${nights || 1} night(s)`;
-                        chargeVal = addon.price * (nights || 1);
-                      }
-                      return (
-                        <div key={addon.id} className="flex justify-between text-[13px]">
-                          <div>
-                            <span className="font-medium text-brand-ink">{addon.name}</span>
-                            <span className="block text-[11px] text-brand-muted-2">{chargeDesc}</span>
-                          </div>
-                          <span className="font-semibold text-brand-ink">GHS {chargeVal}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
               </div>
             ) : (
               <div className="mt-5 text-center text-xs text-brand-muted-2 border-b border-brand-line pb-5 py-3">
