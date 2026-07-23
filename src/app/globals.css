@@ -1,24 +1,26 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-brand-surface: #f4f4f4;
+  --color-brand-surface: #f8f8f8;
   --color-brand-muted-bg: #f4f4f4;
-  --color-brand-ink: #14110f;
-  --color-brand-muted: #6b6560;
-  --color-brand-muted-2: #8a8279;
-  --color-brand-muted-3: #979797;
-  --color-brand-line: #ececec;
-  --color-brand-input-border: #e2e2e2;
-  --color-brand-accent: #b3202f;
-  --color-brand-accent-hover: #8a1723;
-  --color-brand-dark-surface: #2a2521;
-  --color-brand-dark-muted: #b5ada4;
-  --color-brand-footer-text: #e6ded5;
-  --color-brand-footer-heading: #e0616f;
+  --color-brand-ink: #1e1e1e;
+  --color-brand-muted: #666666;
+  --color-brand-muted-2: #888888;
+  --color-brand-muted-3: #999999;
+  --color-brand-line: #eeeeee;
+  --color-brand-input-border: #e0e0e0;
+  --color-brand-accent: #f63854;
+  --color-brand-accent-hover: #d82540;
+  --color-brand-dark-surface: #1a1a1a;
+  --color-brand-dark-muted: #aaaaaa;
+  --color-brand-footer-text: #cccccc;
+  --color-brand-footer-heading: #ffffff;
   --color-brand-tick: #d4d4d4;
 
   --font-display: var(--font-archivo), sans-serif;
   --font-sans: var(--font-worksans), sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-script: var(--font-greatvibes), cursive;
 }
 
 body {
