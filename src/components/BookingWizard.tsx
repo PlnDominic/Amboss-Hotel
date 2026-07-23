@@ -15,13 +15,6 @@ interface Addon {
 
 const ADDONS: Addon[] = [
   {
-    id: 'airport',
-    name: 'Kumasi Airport Pickup',
-    price: 60,
-    description: 'One-way shuttle service from Kumasi Airport directly to the hotel.',
-    priceType: 'flat',
-  },
-  {
     id: 'tour',
     name: 'Guided City Tour',
     price: 120,
@@ -32,7 +25,7 @@ const ADDONS: Addon[] = [
     id: 'checkout',
     name: 'Late Check-out',
     price: 80,
-    description: 'Keep your room until 4:00 PM on departure day instead of the standard 11:00 AM.',
+    description: 'Keep your room until 4:00 PM on departure day instead of the standard 12:00 PM.',
     priceType: 'flat',
   },
   {
@@ -249,9 +242,9 @@ export default function BookingWizard() {
           <div className="mb-8 text-left text-xs leading-relaxed text-brand-muted-2">
             <h4 className="font-bold text-brand-ink mb-1.5 text-[13px]">Important Information:</h4>
             <ul className="list-disc pl-4 space-y-1">
-              <li>Standard check-in time is 2:00 PM, and check-out is 11:00 AM (unless late check-out is requested).</li>
-              <li>A confirmation email has been sent to <strong className="text-brand-ink">{state.email}</strong> with details.</li>
-              <li>For modifications or cancellations, please contact us at +233 (0)541-886633.</li>
+              <li>Standard check-out time is 12:00 PM (unless late check-out is requested).</li>
+              <li>We&apos;ll be in touch at <strong className="text-brand-ink">{state.email}</strong> to confirm the details of your reservation.</li>
+              <li>For modifications or cancellations, please contact us at 0244 066999.</li>
             </ul>
           </div>
 
@@ -651,7 +644,7 @@ export default function BookingWizard() {
               <span className="text-xl font-extrabold text-brand-accent">GHS {pricingSummary.total}</span>
             </div>
             <span className="mt-2 block text-center text-[11px] text-brand-muted-2">
-              All taxes and breakfast are included.
+              All taxes are included.
             </span>
           </div>
         </div>

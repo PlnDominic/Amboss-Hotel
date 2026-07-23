@@ -39,7 +39,7 @@ export default function HomePage() {
 
           <div className="mt-8 flex gap-4">
             <a
-              href="tel:+233541886633"
+              href="tel:+233244066999"
               className="rounded-none bg-white/20 backdrop-blur-md border border-white/60 px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-brand-ink"
             >
               Call Us

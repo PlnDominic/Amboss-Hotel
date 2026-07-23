@@ -11,7 +11,7 @@ export const rooms: RoomInfo[] = [
     bedType: '1 Single',
     bathroom: 'Private',
     wifi: 'Not included',
-    breakfast: 'Included',
+    breakfast: 'Not included',
     tags: [
       'Air-conditioned',
       'TV',
@@ -35,7 +35,7 @@ export const rooms: RoomInfo[] = [
     bedType: '1 Double',
     bathroom: 'Private',
     wifi: 'Free',
-    breakfast: 'Included',
+    breakfast: 'Not included',
     tags: [
       'Air-conditioned',
       'TV',
@@ -60,7 +60,7 @@ export const rooms: RoomInfo[] = [
     bedType: '1 Queen',
     bathroom: 'Private',
     wifi: 'Free',
-    breakfast: 'Included',
+    breakfast: 'Not included',
     tags: [
       'Air-conditioned',
       'TV',
@@ -85,7 +85,7 @@ export const rooms: RoomInfo[] = [
     bedType: '1 King',
     bathroom: 'Private',
     wifi: 'Free',
-    breakfast: 'Included',
+    breakfast: 'Not included',
     tags: [
       'Air-conditioned',
       'TV',

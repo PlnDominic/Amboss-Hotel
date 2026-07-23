@@ -270,10 +270,7 @@ export default function BookingForm() {
               {unavailable ? (
                 <>No {room.name.toLowerCase()}s available for these dates. Try different dates or another room.</>
               ) : availability.checked ? (
-                <>
-                  {availability.remaining} {room.name.toLowerCase()}
-                  {availability.remaining === 1 ? '' : 's'} available for these dates
-                </>
+                <>Available for these dates</>
               ) : (
                 <>Checking availability…</>
               )}

@@ -24,9 +24,9 @@ export default function ContactPage() {
           <div className="mb-7 flex flex-col gap-4.5 text-[15px] leading-[1.7] text-brand-muted">
             <div>
               <span className="font-bold text-brand-ink">Tel:</span>{' '}
-              <a href="tel:+233541886633">+233 (0)541‑886633</a> ·{' '}
-              <a href="tel:+233244162843">+233 (0)244‑162843</a> ·{' '}
-              <a href="tel:+233201868887">+233 (0)201‑868887</a>
+              <a href="tel:+233244066999">0244 066999</a> ·{' '}
+              <a href="tel:+233201185123">0201 185123</a> ·{' '}
+              <a href="tel:+233241878537">0241 878537</a>
             </div>
             <div>
               <span className="font-bold text-brand-ink">Email:</span>{' '}
@@ -41,6 +41,12 @@ export default function ContactPage() {
             </div>
             <div>
               <span className="font-bold text-brand-ink">Location:</span> Santasi Apre, Kumasi
+            </div>
+            <div>
+              <span className="font-bold text-brand-ink">GPS Address:</span> AG-0666-2011
+            </div>
+            <div>
+              <span className="font-bold text-brand-ink">Check-out time:</span> 12:00 PM
             </div>
           </div>
           <iframe

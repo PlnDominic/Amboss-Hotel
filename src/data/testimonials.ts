@@ -21,7 +21,7 @@ export const testimonials: Testimonial[] = [
     name: 'Akosua Boateng',
     role: 'Leisure Traveler',
     rating: 5,
-    text: 'A hidden gem in Kumasi. The pool deck is wonderful for unwinding in the evening, and the complimentary breakfast was delicious every day. The hospitality is unmatched.',
+    text: 'A hidden gem in Kumasi. The pool deck is wonderful for unwinding in the evening, and the restaurant and bar were a lovely touch every day. The hospitality is unmatched.',
     date: 'June 2026',
   },
   {
@@ -29,7 +29,7 @@ export const testimonials: Testimonial[] = [
     name: 'David Smith',
     role: 'International Tourist',
     rating: 4.5,
-    text: 'The staff went above and beyond to make our stay comfortable. Clean, air-conditioned rooms and a peaceful atmosphere. Booking their airport pickup was a huge plus!',
+    text: 'The staff went above and beyond to make our stay comfortable. Clean, air-conditioned rooms and a peaceful atmosphere made all the difference.',
     date: 'May 2026',
   },
   {
