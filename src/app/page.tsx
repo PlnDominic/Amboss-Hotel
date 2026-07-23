@@ -4,6 +4,7 @@ import GalleryImageTile from '@/components/GalleryImageTile';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import RoomImage from '@/components/RoomImage';
 import RoomsShowcase from '@/components/RoomsShowcase';
+import TestimonialsSlider from '@/components/TestimonialsSlider';
 import { galleryImages } from '@/data/gallery';
 import { getRoom } from '@/data/rooms';
 
@@ -39,7 +40,7 @@ export default function HomePage() {
               Call Us
             </a>
             <Link
-              href="/booking"
+              href="/book"
               className="flex items-center gap-2.5 rounded-full bg-brand-accent px-6.5 py-3.5 text-[15px] font-semibold text-white"
             >
               Book Now
@@ -111,7 +112,7 @@ export default function HomePage() {
 
       <RoomsShowcase />
 
-      <section className="px-12 pt-4 pb-20">
+      <section className="px-12 pt-4 pb-12">
         <div className="mb-10 text-center">
           <div className="mb-3.5 text-xs tracking-[0.12em] text-brand-muted-3 uppercase">Gallery</div>
           <div className="font-display text-[40px] font-extrabold text-brand-ink">A closer look</div>
@@ -141,6 +142,8 @@ export default function HomePage() {
           })}
         </div>
       </section>
+
+      <TestimonialsSlider />
     </main>
   );
 }
