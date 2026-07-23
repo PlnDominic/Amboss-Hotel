@@ -3,119 +3,124 @@
 import { useState, useEffect, useCallback } from 'react';
 import { testimonials } from '@/data/testimonials';
 
+function initials(name: string) {
+  return name
+    .split(' ')
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+}
+
+function Stars({ rating }: { rating: number }) {
+  const pct = Math.max(0, Math.min(1, rating / 5)) * 100;
+  return (
+    <div className="relative inline-flex" aria-label={`${rating} out of 5 stars`}>
+      <div className="flex gap-1.5 text-[15px] tracking-[0.1em] text-brand-line">★★★★★</div>
+      <div
+        className="absolute inset-0 flex gap-1.5 overflow-hidden text-[15px] tracking-[0.1em] text-[#c19a3e]"
+        style={{ width: `${pct}%` }}
+      >
+        ★★★★★
+      </div>
+    </div>
+  );
+}
+
 export default function TestimonialsSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const handleNext = useCallback(() => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-      setIsAnimating(false);
-    }, 300);
-  }, [isAnimating]);
+  const goTo = useCallback(
+    (next: (prev: number) => number) => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (next(prev) + testimonials.length) % testimonials.length);
+        setIsAnimating(false);
+      }, 280);
+    },
+    [],
+  );
+
+  const handleNext = useCallback(() => goTo((i) => i + 1), [goTo]);
+  const handlePrev = useCallback(() => goTo((i) => i - 1), [goTo]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, 6000);
+    const timer = setInterval(handleNext, 6500);
     return () => clearInterval(timer);
   }, [handleNext]);
-
-  const handlePrev = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-      setIsAnimating(false);
-    }, 300);
-  };
 
   const current = testimonials[currentIndex];
 
   return (
-    <section className="bg-brand-surface py-16 px-8 md:px-12 rounded-3xl mx-6 md:mx-12 my-10">
-      <div className="mx-auto max-w-[800px] text-center">
-        <div className="mb-3.5 text-xs tracking-[0.12em] text-brand-muted-3 uppercase">Testimonials</div>
-        <h2 className="font-display text-[32px] font-extrabold text-brand-ink mb-10">What our guests say</h2>
+    <section className="ml-[calc(50%-50vw)] w-screen border-y border-brand-line bg-brand-surface/60 px-6 py-24 md:px-12 md:py-28">
+      <div className="mx-auto max-w-[980px]">
+        <div className="mb-14 text-center">
+          <div className="mb-4 text-xs tracking-[0.24em] text-brand-muted-3 uppercase">Testimonials</div>
+          <h2 className="font-display text-[40px] leading-none font-extrabold text-brand-ink">What our guests say</h2>
+          <div className="mx-auto mt-6 h-px w-14 bg-brand-accent" />
+        </div>
 
-        <div className="relative min-h-[220px] flex flex-col items-center justify-center">
-          {/* Quote mark decoration */}
-          <span className="absolute -top-6 text-[100px] leading-none text-brand-accent/10 font-serif select-none pointer-events-none">
-            “
+        <div className="relative">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 font-display text-[180px] leading-none text-brand-accent/10 select-none md:-top-20 md:text-[220px]"
+          >
+            &ldquo;
           </span>
 
           <div
-            className={`transition-opacity duration-300 ease-in-out ${
-              isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+            className={`relative flex flex-col items-center text-center transition-all duration-300 ease-out ${
+              isAnimating ? 'translate-y-1 opacity-0' : 'translate-y-0 opacity-100'
             }`}
           >
-            {/* Stars */}
-            <div className="flex justify-center gap-1 mb-5">
-              {Array.from({ length: 5 }).map((_, i) => {
-                const isFull = i < Math.floor(current.rating);
-                const isHalf = !isFull && i < current.rating;
-                return (
-                  <span key={i} className="text-xl text-amber-500">
-                    {isFull ? '★' : isHalf ? '⯪' : '☆'}
-                  </span>
-                );
-              })}
+            <div className="mb-8">
+              <Stars rating={current.rating} />
             </div>
 
-            {/* Testimonial text */}
-            <p className="text-lg md:text-xl font-medium leading-[1.65] text-brand-ink max-w-[680px] mx-auto italic">
-              &quot;{current.text}&quot;
-            </p>
+            <blockquote className="mx-auto max-w-[760px] font-display text-[24px] leading-[1.5] font-medium text-brand-ink md:text-[30px]">
+              {current.text}
+            </blockquote>
 
-            {/* Reviewer details */}
-            <div className="mt-7">
-              <div className="text-[15px] font-bold text-brand-ink">{current.name}</div>
-              <div className="text-xs text-brand-muted mt-0.5">
-                {current.role} • {current.date}
+            <div className="mt-10 flex items-center gap-4">
+              <div className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-brand-ink font-display text-sm font-bold tracking-[0.04em] text-white">
+                {initials(current.name)}
+              </div>
+              <div className="text-left">
+                <div className="text-[15px] font-bold text-brand-ink">{current.name}</div>
+                <div className="mt-0.5 text-[12.5px] tracking-[0.02em] text-brand-muted-2">
+                  {current.role} · {current.date}
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Slider Controls */}
-        <div className="flex items-center justify-center gap-6 mt-8">
+        <div className="mt-14 flex items-center justify-center gap-7">
           <button
             onClick={handlePrev}
             aria-label="Previous testimonial"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-line bg-white text-brand-ink transition-all hover:bg-brand-ink hover:text-white"
+            className="flex h-11 w-11 items-center justify-center border border-brand-line bg-white text-brand-ink transition-colors hover:bg-brand-ink hover:text-white"
           >
-            ←
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
-          
-          {/* Dots Indicator */}
-          <div className="flex gap-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  if (isAnimating || index === currentIndex) return;
-                  setIsAnimating(true);
-                  setTimeout(() => {
-                    setCurrentIndex(index);
-                    setIsAnimating(false);
-                  }, 300);
-                }}
-                aria-label={`Go to testimonial ${index + 1}`}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? 'w-6 bg-brand-accent' : 'w-2.5 bg-brand-line'
-                }`}
-              />
-            ))}
+
+          <div className="min-w-[60px] text-center text-[13px] tracking-[0.16em] text-brand-muted-2 tabular-nums">
+            <span className="font-bold text-brand-ink">{String(currentIndex + 1).padStart(2, '0')}</span>
+            <span className="mx-1.5 text-brand-line">/</span>
+            {String(testimonials.length).padStart(2, '0')}
           </div>
 
           <button
             onClick={handleNext}
             aria-label="Next testimonial"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-line bg-white text-brand-ink transition-all hover:bg-brand-ink hover:text-white"
+            className="flex h-11 w-11 items-center justify-center border border-brand-line bg-white text-brand-ink transition-colors hover:bg-brand-ink hover:text-white"
           >
-            →
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
         </div>
       </div>
