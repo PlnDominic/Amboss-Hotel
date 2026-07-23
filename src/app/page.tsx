@@ -64,7 +64,7 @@ export default function HomePage() {
       <section className="grid grid-cols-1 gap-5 px-12 py-14 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.15fr]">
         <div className="min-w-0">
           <div className="relative">
-            <ImagePlaceholder label="Single room photo" />
+            <RoomImage room={getRoom('single')} />
             <div className="absolute top-3 right-3 flex h-7.5 w-7.5 items-center justify-center rounded-full bg-white text-[13px]">
               ★
             </div>
