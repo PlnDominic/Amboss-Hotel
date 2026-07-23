@@ -41,24 +41,24 @@ export default function Header() {
               >
                 {item.label}
                 {active && (
-                  <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-brand-accent rounded-full" />
+                  <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-brand-accent rounded-none" />
                 )}
               </Link>
             );
           })}
         </nav>
 
-        {/* Book Now Button (Bold CTA) */}
+        {/* Book Now Button (Bold CTA with Sharp Square Edges) */}
         <div className="hidden lg:flex items-center gap-3">
           <a
             href="tel:+233541886633"
-            className="rounded-full bg-brand-surface px-5 py-2.5 text-xs font-bold text-brand-ink transition-colors hover:bg-brand-line"
+            className="rounded-none bg-brand-surface px-5 py-2.5 text-xs font-bold text-brand-ink transition-colors hover:bg-brand-line"
           >
             Call Us
           </a>
           <Link
             href="/book"
-            className="rounded-full bg-brand-accent px-7 py-2.5 text-xs font-extrabold text-white tracking-widest uppercase transition-colors hover:bg-brand-accent-hover shadow-md"
+            className="rounded-none bg-brand-accent px-7 py-2.5 text-xs font-extrabold text-white tracking-widest uppercase transition-colors hover:bg-brand-accent-hover shadow-md"
           >
             BOOK NOW
           </Link>
@@ -69,7 +69,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-brand-line text-brand-ink"
+            className="flex h-10 w-10 items-center justify-center rounded-none border border-brand-line text-brand-ink"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M4 6h16M4 12h16M4 18h16" />
@@ -93,7 +93,7 @@ export default function Header() {
             ))}
             <Link
               href="/book"
-              className="mt-2 block rounded-lg bg-brand-accent py-3 text-center text-sm font-extrabold text-white uppercase"
+              className="mt-2 block rounded-none bg-brand-accent py-3 text-center text-sm font-extrabold text-white uppercase"
             >
               BOOK NOW
             </Link>

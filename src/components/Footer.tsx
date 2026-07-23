@@ -76,7 +76,7 @@ export default function Footer() {
             </p>
 
             {subscribed ? (
-              <div className="rounded-lg bg-emerald-950/80 border border-emerald-500/30 p-3 text-xs text-emerald-300">
+              <div className="rounded-none bg-emerald-950/80 border border-emerald-500/30 p-3 text-xs text-emerald-300">
                 ✓ Thank you for subscribing!
               </div>
             ) : (
@@ -87,11 +87,11 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full rounded-l-lg bg-white px-3 py-2 text-xs text-brand-ink outline-none"
+                  className="w-full rounded-none bg-white px-3 py-2 text-xs text-brand-ink outline-none"
                 />
                 <button
                   type="submit"
-                  className="rounded-r-lg bg-brand-accent px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-brand-accent-hover"
+                  className="rounded-none bg-brand-accent px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-brand-accent-hover"
                 >
                   SEND
                 </button>

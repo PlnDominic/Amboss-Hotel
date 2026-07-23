@@ -40,13 +40,13 @@ export default function HomePage() {
           <div className="mt-8 flex gap-4">
             <a
               href="tel:+233541886633"
-              className="rounded-full bg-white/20 backdrop-blur-md border border-white/60 px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-brand-ink"
+              className="rounded-none bg-white/20 backdrop-blur-md border border-white/60 px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-brand-ink"
             >
               Call Us
             </a>
             <Link
               href="/book"
-              className="rounded-full bg-brand-accent px-8 py-3 text-xs font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-brand-accent-hover"
+              className="rounded-none bg-brand-accent px-8 py-3 text-xs font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-brand-accent-hover"
             >
               Book Your Stay →
             </Link>
@@ -68,18 +68,18 @@ export default function HomePage() {
             On arrival you&apos;re welcomed into a spacious, modern air-conditioned home in Santasi Apre, Kumasi, with well-appointed single, double, deluxe, and executive rooms built for corporate travel and easy getaways alike.
           </p>
 
-          {/* 4 Column Room Cards Grid (including the GHS 500 Deluxe Room) */}
+          {/* 4 Column Room Cards Grid (Sharp Square Edges) */}
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {rooms.map((room) => (
               <div
                 key={room.key}
-                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-brand-line bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group flex flex-col justify-between overflow-hidden rounded-none border border-brand-line bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
               >
                 <div>
                   <div className="relative h-[220px] w-full overflow-hidden">
                     <RoomImage room={room} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     {room.key === 'deluxe' && (
-                      <span className="absolute top-3 right-3 rounded-full bg-brand-accent px-3 py-1 text-[10px] font-bold text-white uppercase tracking-wider shadow">
+                      <span className="absolute top-3 right-3 rounded-none bg-brand-accent px-3 py-1 text-[10px] font-bold text-white uppercase tracking-wider shadow">
                         Popular
                       </span>
                     )}
@@ -96,7 +96,7 @@ export default function HomePage() {
                       {room.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full bg-brand-surface px-2 py-0.5 text-[10px] font-medium text-brand-muted"
+                          className="rounded-none bg-brand-surface px-2 py-0.5 text-[10px] font-medium text-brand-muted"
                         >
                           {tag}
                         </span>
@@ -108,7 +108,7 @@ export default function HomePage() {
                 <div className="p-5 pt-0 text-left">
                   <Link
                     href="/book"
-                    className="block w-full rounded-xl bg-brand-ink py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-brand-accent"
+                    className="block w-full rounded-none bg-brand-ink py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-brand-accent"
                   >
                     Book Room
                   </Link>
@@ -120,7 +120,7 @@ export default function HomePage() {
           <div className="mt-12">
             <Link
               href="/rooms"
-              className="inline-block rounded-full bg-brand-accent px-9 py-3.5 text-xs font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-brand-accent-hover"
+              className="inline-block rounded-none bg-brand-accent px-9 py-3.5 text-xs font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-brand-accent-hover"
             >
               View All Rooms
             </Link>
@@ -128,7 +128,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* RESTORED GALLERY SECTION WITH NEW STAGGERED MOSAIC LAYOUT */}
+      {/* RESTORED GALLERY SECTION WITH STAGGERED MOSAIC LAYOUT (Sharp Square Edges) */}
       <section className="bg-brand-surface py-20 px-6">
         <div className="mx-auto max-w-[1240px] text-center">
           <span className="font-script text-3xl text-brand-accent">A Closer Look</span>
@@ -144,7 +144,7 @@ export default function HomePage() {
               {[galleryImages[0], galleryImages[4]].map((img, idx) => (
                 <div
                   key={img.id}
-                  className={`group relative overflow-hidden rounded-2xl bg-black/30 shadow-md ${
+                  className={`group relative overflow-hidden rounded-none bg-black/30 shadow-md ${
                     idx === 0 ? 'h-[360px]' : 'h-[240px]'
                   }`}
                 >
@@ -174,7 +174,7 @@ export default function HomePage() {
               {[galleryImages[2], galleryImages[5]].map((img, idx) => (
                 <div
                   key={img.id}
-                  className={`group relative overflow-hidden rounded-2xl bg-black/30 shadow-md ${
+                  className={`group relative overflow-hidden rounded-none bg-black/30 shadow-md ${
                     idx === 0 ? 'h-[240px]' : 'h-[360px]'
                   }`}
                 >
@@ -204,7 +204,7 @@ export default function HomePage() {
               {[galleryImages[3], galleryImages[1]].map((img, idx) => (
                 <div
                   key={img.id}
-                  className={`group relative overflow-hidden rounded-2xl bg-black/30 shadow-md ${
+                  className={`group relative overflow-hidden rounded-none bg-black/30 shadow-md ${
                     idx === 0 ? 'h-[360px]' : 'h-[240px]'
                   }`}
                 >
