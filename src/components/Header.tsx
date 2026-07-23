@@ -80,7 +80,7 @@ export default function Header() {
             Call Us
           </a>
           <Link
-            href="/booking"
+            href="/book"
             className="flex items-center gap-2 rounded-full bg-brand-accent px-5.5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-accent-hover"
           >
             Book Now
@@ -139,7 +139,7 @@ export default function Header() {
               Call Us
             </a>
             <Link
-              href="/booking"
+              href="/book"
               className="flex items-center justify-center gap-2 rounded-full bg-brand-accent px-5 py-3 text-sm font-semibold text-white"
             >
               Book Now
