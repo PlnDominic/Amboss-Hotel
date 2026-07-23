@@ -30,12 +30,33 @@ const SERIF = "Georgia,'Times New Roman',Times,serif";
 const SANS = "Helvetica,Arial,sans-serif";
 const LOGO_CID = 'anboss-hotel-logo';
 
-function logoAttachment(origin: string) {
-  return {
-    filename: 'anboss-hotel-logo.png',
-    path: `${origin}/anboss-hotel-logo.png`,
-    cid: LOGO_CID,
-  };
+let logoBufferPromise: Promise<Buffer | null> | null = null;
+
+/**
+ * Fetches the hotel logo once per warm server instance and caches the
+ * result (including in-flight dedup for concurrent first calls), so a
+ * transient fetch failure can only ever affect the logo, never abort the
+ * email send itself. Previously each send fetched the logo live inside
+ * nodemailer's own attachment handling — if that fetch failed, the whole
+ * sendMail call threw and was silently swallowed by the caller's catch
+ * block, so one email could go out while its twin silently vanished.
+ */
+function getLogoBuffer(origin: string): Promise<Buffer | null> {
+  if (!logoBufferPromise) {
+    logoBufferPromise = fetch(`${origin}/anboss-hotel-logo.png`)
+      .then((res) => (res.ok ? res.arrayBuffer().then((buf) => Buffer.from(buf)) : null))
+      .catch((error) => {
+        console.error('Failed to fetch hotel logo for email attachment:', error);
+        return null;
+      });
+  }
+  return logoBufferPromise;
+}
+
+async function logoAttachments(origin: string) {
+  const buffer = await getLogoBuffer(origin);
+  if (!buffer) return [];
+  return [{ filename: 'anboss-hotel-logo.png', content: buffer, cid: LOGO_CID }];
 }
 
 function renderDetailRows(rows: Array<[string, string]>): string {
@@ -208,10 +229,10 @@ export async function sendBookingNotificationEmail(booking: Booking, origin: str
       subject,
       text,
       html,
-      attachments: [logoAttachment(origin)],
+      attachments: await logoAttachments(origin),
     });
   } catch (error) {
-    console.error('Failed to send booking notification email:', error);
+    console.error(`Failed to send booking notification email to ${to}:`, error);
   }
 }
 
@@ -296,9 +317,9 @@ export async function sendBookingConfirmationEmail(booking: Booking, origin: str
       subject,
       text,
       html,
-      attachments: [logoAttachment(origin)],
+      attachments: await logoAttachments(origin),
     });
   } catch (error) {
-    console.error('Failed to send booking confirmation email:', error);
+    console.error(`Failed to send booking confirmation email to ${booking.email}:`, error);
   }
 }
