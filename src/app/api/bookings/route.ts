@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { rooms } from '@/data/rooms';
 import { checkAvailability, createBooking } from '@/lib/bookings';
-import { sendBookingNotificationEmail } from '@/lib/mailer';
+import { sendBookingConfirmationEmail, sendBookingNotificationEmail } from '@/lib/mailer';
 import type { RoomKey } from '@/types';
 
 export const dynamic = 'force-dynamic';
@@ -80,7 +80,11 @@ export async function POST(request: Request) {
     message: typeof message === 'string' && message.trim() ? message.trim() : undefined,
   });
 
-  await sendBookingNotificationEmail(booking);
+  const origin = new URL(request.url).origin;
+  await Promise.all([
+    sendBookingNotificationEmail(booking, origin),
+    sendBookingConfirmationEmail(booking, origin),
+  ]);
 
   return NextResponse.json({ booking }, { status: 201 });
 }
