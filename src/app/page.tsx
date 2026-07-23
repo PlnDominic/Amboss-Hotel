@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import GalleryImageTile from '@/components/GalleryImageTile';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import RoomImage from '@/components/RoomImage';
 import RoomsShowcase from '@/components/RoomsShowcase';
@@ -126,9 +127,14 @@ export default function HomePage() {
                 : 'h-[180px] sm:h-full';
             if (image.src) {
               return (
-                <div key={image.id} className={`relative w-full overflow-hidden ${size}`}>
-                  <Image src={image.src} alt={image.label} fill className="object-cover" />
-                </div>
+                <GalleryImageTile
+                  key={image.id}
+                  src={image.src}
+                  variantBase={image.variantBase}
+                  sizes={image.sizes}
+                  alt={image.label}
+                  className={size}
+                />
               );
             }
             return <ImagePlaceholder key={image.id} label={image.label} className={size} />;
