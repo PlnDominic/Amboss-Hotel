@@ -197,9 +197,9 @@ export default function BookingWizard() {
             <span className={step >= 2 ? 'text-brand-accent' : ''}>2. Extras</span>
             <span className={step >= 3 ? 'text-brand-accent' : ''}>3. Personal Details</span>
           </div>
-          <div className="mt-3.5 h-1.5 w-full rounded-full bg-brand-surface">
+          <div className="mt-3.5 h-1.5 w-full rounded-none bg-brand-surface">
             <div
-              className="h-full rounded-full bg-brand-accent transition-all duration-300"
+              className="h-full rounded-none bg-brand-accent transition-all duration-300"
               style={{ width: `${((step - 1) / 2) * 100}%` }}
             />
           </div>
@@ -208,8 +208,8 @@ export default function BookingWizard() {
 
       {step === 4 && bookingRef ? (
         // Step 4: Success / Confirmation Screen
-        <div className="mx-auto max-w-[650px] rounded-3xl border border-brand-line bg-white p-8 text-center shadow-sm md:p-12">
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-50 text-3xl text-green-600">
+        <div className="mx-auto max-w-[650px] rounded-none border border-brand-line bg-white p-8 text-center shadow-sm md:p-12">
+          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-none bg-green-50 text-3xl text-green-600">
             ✓
           </div>
           <h2 className="font-display text-3xl font-extrabold text-brand-ink">Booking Confirmed!</h2>
@@ -217,7 +217,7 @@ export default function BookingWizard() {
             Thank you for choosing Anboss Hotel, {state.name}. Your reservation request has been processed successfully.
           </p>
 
-          <div className="my-8 rounded-2xl bg-brand-surface p-6 text-left">
+          <div className="my-8 rounded-none bg-brand-surface p-6 text-left">
             <div className="mb-4 flex items-center justify-between border-b border-brand-line pb-4">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-muted-3">Reservation Ref</span>
               <span className="font-mono text-base font-bold text-brand-ink">{bookingRef}</span>
@@ -257,7 +257,7 @@ export default function BookingWizard() {
 
           <button
             onClick={resetWizard}
-            className="w-full rounded-full bg-brand-accent py-4 text-[15px] font-bold text-white transition-colors hover:bg-brand-accent-hover"
+            className="w-full rounded-none bg-brand-accent py-4 text-[15px] font-bold text-white transition-colors hover:bg-brand-accent-hover"
           >
             Make Another Booking
           </button>
@@ -266,7 +266,7 @@ export default function BookingWizard() {
         // Active Wizard steps
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.6fr_1fr]">
           {/* Main Wizard Form Container */}
-          <div className="rounded-3xl border border-brand-line bg-white p-7 md:p-9 shadow-sm">
+          <div className="rounded-none border border-brand-line bg-white p-7 md:p-9 shadow-sm">
             {step === 1 && (
               <div>
                 <h2 className="mb-1 font-display text-2xl font-extrabold text-brand-ink">Choose Dates & Room</h2>
@@ -284,7 +284,7 @@ export default function BookingWizard() {
                       min={todayStr}
                       value={state.checkin}
                       onChange={(e) => setState((prev) => ({ ...prev, checkin: e.target.value }))}
-                      className="w-full rounded-xl border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
+                      className="w-full rounded-none border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
                     />
                     {errors.checkin && <span className="mt-1 block text-xs text-brand-accent">{errors.checkin}</span>}
                   </div>
@@ -297,7 +297,7 @@ export default function BookingWizard() {
                       min={minCheckoutStr}
                       value={state.checkout}
                       onChange={(e) => setState((prev) => ({ ...prev, checkout: e.target.value }))}
-                      className="w-full rounded-xl border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
+                      className="w-full rounded-none border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
                     />
                     {errors.checkout && <span className="mt-1 block text-xs text-brand-accent">{errors.checkout}</span>}
                   </div>
@@ -313,7 +313,7 @@ export default function BookingWizard() {
                       onChange={(e) =>
                         setState((prev) => ({ ...prev, guests: Math.max(1, parseInt(e.target.value) || 1) }))
                       }
-                      className="w-full rounded-xl border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
+                      className="w-full rounded-none border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
                     />
                   </div>
                 </div>
@@ -333,7 +333,7 @@ export default function BookingWizard() {
                       <div
                         key={room.key}
                         onClick={() => setState((prev) => ({ ...prev, selectedRoom: room.key }))}
-                        className={`group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border transition-all md:flex-row ${
+                        className={`group relative flex cursor-pointer flex-col overflow-hidden rounded-none border transition-all md:flex-row ${
                           isSelected
                             ? 'border-brand-accent bg-[#fffdfd] ring-1 ring-brand-accent'
                             : 'border-brand-line hover:border-brand-muted-2'
@@ -358,7 +358,7 @@ export default function BookingWizard() {
                             {room.tags.slice(0, 3).map((tag) => (
                               <span
                                 key={tag}
-                                className="rounded-full bg-brand-surface px-2.5 py-1 text-[11px] font-medium text-brand-muted"
+                                className="rounded-none bg-brand-surface px-2.5 py-1 text-[11px] font-medium text-brand-muted"
                               >
                                 {tag}
                               </span>
@@ -366,7 +366,7 @@ export default function BookingWizard() {
                           </div>
                         </div>
                         {isSelected && (
-                          <div className="absolute top-3.5 right-3.5 flex h-5 w-5 items-center justify-center rounded-full bg-brand-accent text-white text-[10px] font-bold">
+                          <div className="absolute top-3.5 right-3.5 flex h-5 w-5 items-center justify-center rounded-none bg-brand-accent text-white text-[10px] font-bold">
                             ✓
                           </div>
                         )}
@@ -391,7 +391,7 @@ export default function BookingWizard() {
                       <div
                         key={addon.id}
                         onClick={() => handleAddonToggle(addon.id)}
-                        className={`flex cursor-pointer items-start gap-4.5 rounded-2xl border p-5 transition-all ${
+                        className={`flex cursor-pointer items-start gap-4.5 rounded-none border p-5 transition-all ${
                           isSelected ? 'border-brand-accent bg-[#fffdfd]' : 'border-brand-line hover:border-brand-muted-2'
                         }`}
                       >
@@ -441,7 +441,7 @@ export default function BookingWizard() {
                       required
                       value={state.name}
                       onChange={(e) => setState((prev) => ({ ...prev, name: e.target.value }))}
-                      className="w-full rounded-xl border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
+                      className="w-full rounded-none border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
                       placeholder="e.g. John Doe"
                     />
                     {errors.name && <span className="mt-1 block text-xs text-brand-accent">{errors.name}</span>}
@@ -457,7 +457,7 @@ export default function BookingWizard() {
                         required
                         value={state.email}
                         onChange={(e) => setState((prev) => ({ ...prev, email: e.target.value }))}
-                        className="w-full rounded-xl border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
+                        className="w-full rounded-none border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
                         placeholder="john@example.com"
                       />
                       {errors.email && <span className="mt-1 block text-xs text-brand-accent">{errors.email}</span>}
@@ -471,7 +471,7 @@ export default function BookingWizard() {
                         required
                         value={state.phone}
                         onChange={(e) => setState((prev) => ({ ...prev, phone: e.target.value }))}
-                        className="w-full rounded-xl border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
+                        className="w-full rounded-none border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent"
                         placeholder="+233 54 188 6633"
                       />
                       {errors.phone && <span className="mt-1 block text-xs text-brand-accent">{errors.phone}</span>}
@@ -486,7 +486,7 @@ export default function BookingWizard() {
                       rows={3}
                       value={state.specialRequests}
                       onChange={(e) => setState((prev) => ({ ...prev, specialRequests: e.target.value }))}
-                      className="w-full rounded-xl border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent resize-y"
+                      className="w-full rounded-none border border-brand-input-border bg-white px-4 py-3 text-[14px] outline-none focus:border-brand-accent resize-y"
                       placeholder="e.g. Dietary requirements, quiet room, late check-in notice..."
                     />
                   </div>
@@ -498,7 +498,7 @@ export default function BookingWizard() {
                     <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
                       <div
                         onClick={() => setState((prev) => ({ ...prev, paymentMethod: 'hotel' }))}
-                        className={`flex cursor-pointer items-center justify-between rounded-xl border p-4 transition-all ${
+                        className={`flex cursor-pointer items-center justify-between rounded-none border p-4 transition-all ${
                           state.paymentMethod === 'hotel'
                             ? 'border-brand-accent bg-[#fffdfd]'
                             : 'border-brand-line hover:border-brand-muted-2'
@@ -517,7 +517,7 @@ export default function BookingWizard() {
                       </div>
                       <div
                         onClick={() => setState((prev) => ({ ...prev, paymentMethod: 'momo' }))}
-                        className={`flex cursor-pointer items-center justify-between rounded-xl border p-4 transition-all ${
+                        className={`flex cursor-pointer items-center justify-between rounded-none border p-4 transition-all ${
                           state.paymentMethod === 'momo'
                             ? 'border-brand-accent bg-[#fffdfd]'
                             : 'border-brand-line hover:border-brand-muted-2'
@@ -546,7 +546,7 @@ export default function BookingWizard() {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="rounded-full border border-brand-line bg-white px-7 py-3 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-surface"
+                  className="rounded-none border border-brand-line bg-white px-7 py-3 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-surface"
                 >
                   Back
                 </button>
@@ -557,7 +557,7 @@ export default function BookingWizard() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="rounded-full bg-brand-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-accent-hover"
+                  className="rounded-none bg-brand-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-accent-hover"
                 >
                   Continue
                 </button>
@@ -565,7 +565,7 @@ export default function BookingWizard() {
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="rounded-full bg-brand-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-accent-hover"
+                  className="rounded-none bg-brand-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-accent-hover"
                 >
                   Confirm Booking
                 </button>
@@ -574,7 +574,7 @@ export default function BookingWizard() {
           </div>
 
           {/* Pricing & Dates Summary Column */}
-          <div className="rounded-3xl border border-brand-line bg-white p-7 shadow-sm lg:sticky lg:top-28">
+          <div className="rounded-none border border-brand-line bg-white p-7 shadow-sm lg:sticky lg:top-28">
             <h3 className="font-display text-lg font-bold text-brand-ink border-b border-brand-line pb-4">
               Your Booking Summary
             </h3>

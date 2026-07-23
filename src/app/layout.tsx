@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Archivo, Work_Sans } from 'next/font/google';
+import { Archivo, Work_Sans, Playfair_Display, Great_Vibes } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css';
@@ -16,6 +16,18 @@ const workSans = Work_Sans({
   variable: '--font-worksans',
 });
 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-playfair',
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-greatvibes',
+});
+
 export const metadata: Metadata = {
   title: 'Anboss Hotel in Santasi Apre, Kumasi',
   description:
@@ -24,13 +36,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${workSans.variable}`}>
+    <html
+      lang="en"
+      className={`${archivo.variable} ${workSans.variable} ${playfair.variable} ${greatVibes.variable}`}
+    >
       <body className="overflow-x-clip bg-white font-sans text-brand-ink antialiased">
-        <div className="mx-auto min-h-screen max-w-[1300px]">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
