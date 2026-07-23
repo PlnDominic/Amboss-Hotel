@@ -6,9 +6,9 @@ export interface GalleryImage {
 
 export const galleryImages: GalleryImage[] = [
   { id: 'exterior', label: 'Main entrance', src: '/hotel-entrance.webp' },
-  { id: 'lobby', label: 'Lobby & reception' },
+  { id: 'bathroom', label: 'Bathroom', src: '/gallery/bath.png' },
   { id: 'pool', label: 'Pool deck' },
   { id: 'room-interior', label: 'Guest room interior', src: '/gallery-room.webp' },
-  { id: 'bar', label: 'Bar & lounge' },
+  { id: 'wardrobe', label: 'Wardrobe', src: '/gallery/wardrobe.png' },
   { id: 'courtyard', label: 'Courtyard & porch', src: '/hotel-courtyard.webp' },
 ];
