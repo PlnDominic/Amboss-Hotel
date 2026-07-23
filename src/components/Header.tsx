@@ -8,7 +8,6 @@ import Logo from './Logo';
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
   { href: '/rooms', label: 'Rooms' },
-  { href: '/amenities', label: 'Amenities' },
   { href: '/contact', label: 'Contact' },
 ];
 

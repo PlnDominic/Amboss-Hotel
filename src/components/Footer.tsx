@@ -5,9 +5,8 @@ import { rooms } from '@/data/rooms';
 const LINKS = [
   { href: '/', label: 'Home' },
   { href: '/rooms', label: 'Rooms' },
-  { href: '/amenities', label: 'Amenities' },
   { href: '/contact', label: 'Contact' },
-  { href: '/booking', label: 'Book Now' },
+  { href: '/book', label: 'Book Now' },
 ];
 
 const headingClass = 'mb-5 text-xs font-bold tracking-[0.14em] text-brand-footer-heading uppercase';
