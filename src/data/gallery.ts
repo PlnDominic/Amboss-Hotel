@@ -31,4 +31,5 @@ export const galleryImages: GalleryImage[] = [
     sizes: '(max-width: 640px) 50vw, 25vw',
   },
   { id: 'courtyard', label: 'Courtyard & porch', src: '/hotel-courtyard.webp' },
+  { id: 'facade', label: 'Hotel façade', src: '/hotel-facade.webp' },
 ];
