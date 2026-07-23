@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import type { RoomKey } from '@/types';
+import type { Booking, RoomKey } from '@/types';
 import { rooms } from '@/data/rooms';
 import RoomImage from '@/components/RoomImage';
 
@@ -67,7 +67,9 @@ export default function BookingWizard() {
   const [step, setStep] = useState(1);
   const [state, setState] = useState<BookingState>(INITIAL_STATE);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [bookingRef, setBookingRef] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [confirmedBooking, setConfirmedBooking] = useState<Booking | null>(null);
 
   // Get current date formatted for date inputs min attribute
   const todayStr = useMemo(() => {
@@ -163,18 +165,62 @@ export default function BookingWizard() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const randNum = Math.floor(1000 + Math.random() * 9000);
-    const ref = `ANB-${randNum}-${new Date().getFullYear()}`;
-    setBookingRef(ref);
-    setStep(4);
+    setSubmitError('');
+    setSubmitting(true);
+
+    const addonNames = state.selectedAddons
+      .map((id) => ADDONS.find((a) => a.id === id)?.name)
+      .filter((name): name is string => Boolean(name));
+    const message = [
+      state.specialRequests.trim(),
+      addonNames.length ? `Requested extras: ${addonNames.join(', ')}` : '',
+    ]
+      .filter(Boolean)
+      .join(' | ');
+
+    try {
+      const res = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          roomKey: state.selectedRoom,
+          name: state.name,
+          email: state.email,
+          phone: state.phone,
+          checkIn: state.checkin,
+          checkOut: state.checkout,
+          guests: state.guests,
+          message: message || undefined,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (res.status === 400 && data.errors) {
+        setErrors(data.errors);
+        setSubmitError('Please check the highlighted details and try again.');
+        setStep(3);
+      } else if (res.status === 409) {
+        setSubmitError(data.error || 'Those dates are no longer available for this room. Please try different dates or another room.');
+      } else if (!res.ok) {
+        setSubmitError(data.error || 'Something went wrong. Please try again.');
+      } else {
+        setConfirmedBooking(data.booking as Booking);
+        setStep(4);
+      }
+    } catch {
+      setSubmitError('Could not reach the server. Please check your connection and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const resetWizard = () => {
     setState(INITIAL_STATE);
     setStep(1);
-    setBookingRef(null);
+    setConfirmedBooking(null);
+    setSubmitError('');
     setErrors({});
   };
 
@@ -199,7 +245,7 @@ export default function BookingWizard() {
         </div>
       )}
 
-      {step === 4 && bookingRef ? (
+      {step === 4 && confirmedBooking ? (
         // Step 4: Success / Confirmation Screen
         <div className="mx-auto max-w-[650px] rounded-none border border-brand-line bg-white p-8 text-center shadow-sm md:p-12">
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-none bg-green-50 text-3xl text-green-600">
@@ -207,13 +253,13 @@ export default function BookingWizard() {
           </div>
           <h2 className="font-display text-3xl font-extrabold text-brand-ink">Booking Confirmed!</h2>
           <p className="mt-3 text-[15px] leading-relaxed text-brand-muted-2">
-            Thank you for choosing Anboss Hotel, {state.name}. Your reservation request has been processed successfully.
+            Thank you for choosing Anboss Hotel, {confirmedBooking.name}. Your reservation request has been processed successfully.
           </p>
 
           <div className="my-8 rounded-none bg-brand-surface p-6 text-left">
             <div className="mb-4 flex items-center justify-between border-b border-brand-line pb-4">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-muted-3">Reservation Ref</span>
-              <span className="font-mono text-base font-bold text-brand-ink">{bookingRef}</span>
+              <span className="font-mono text-base font-bold text-brand-ink">{confirmedBooking.reference}</span>
             </div>
             <div className="grid grid-cols-2 gap-y-4 text-[14px]">
               <div>
@@ -222,15 +268,15 @@ export default function BookingWizard() {
               </div>
               <div>
                 <span className="block text-brand-muted text-xs">Guests</span>
-                <span className="font-semibold text-brand-ink">{state.guests} Guests</span>
+                <span className="font-semibold text-brand-ink">{confirmedBooking.guests} Guests</span>
               </div>
               <div>
                 <span className="block text-brand-muted text-xs">Check-in</span>
-                <span className="font-semibold text-brand-ink">{state.checkin}</span>
+                <span className="font-semibold text-brand-ink">{confirmedBooking.checkIn}</span>
               </div>
               <div>
                 <span className="block text-brand-muted text-xs">Check-out</span>
-                <span className="font-semibold text-brand-ink">{state.checkout}</span>
+                <span className="font-semibold text-brand-ink">{confirmedBooking.checkOut}</span>
               </div>
             </div>
             <div className="mt-6 border-t border-brand-line pt-4 flex items-center justify-between">
@@ -243,7 +289,7 @@ export default function BookingWizard() {
             <h4 className="font-bold text-brand-ink mb-1.5 text-[13px]">Important Information:</h4>
             <ul className="list-disc pl-4 space-y-1">
               <li>Standard check-out time is 12:00 PM (unless late check-out is requested).</li>
-              <li>We&apos;ll be in touch at <strong className="text-brand-ink">{state.email}</strong> to confirm the details of your reservation.</li>
+              <li>We&apos;ll be in touch at <strong className="text-brand-ink">{confirmedBooking.email}</strong> to confirm the details of your reservation.</li>
               <li>For modifications or cancellations, please contact us at 0244 066999.</li>
             </ul>
           </div>
@@ -533,13 +579,20 @@ export default function BookingWizard() {
               </form>
             )}
 
+            {submitError && (
+              <div className="mt-6 border border-brand-accent/30 bg-[#fff5f5] px-4 py-3 text-sm font-medium text-brand-accent">
+                {submitError}
+              </div>
+            )}
+
             {/* Navigation buttons */}
             <div className="mt-8 flex justify-between border-t border-brand-line pt-6">
               {step > 1 ? (
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="rounded-none border border-brand-line bg-white px-7 py-3 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-surface"
+                  disabled={submitting}
+                  className="rounded-none border border-brand-line bg-white px-7 py-3 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-surface disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   Back
                 </button>
@@ -558,9 +611,10 @@ export default function BookingWizard() {
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="rounded-none bg-brand-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-accent-hover"
+                  disabled={submitting}
+                  className="rounded-none bg-brand-accent px-8 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Confirm Booking
+                  {submitting ? 'Booking…' : 'Confirm Booking'}
                 </button>
               )}
             </div>
