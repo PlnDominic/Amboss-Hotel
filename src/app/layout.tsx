@@ -53,6 +53,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Anboss Hotel' }],
   creator: 'Anboss Hotel',
   publisher: 'Anboss Hotel',
+  icons: {
+    icon: '/anboss-hotel-logo.png',
+    shortcut: '/anboss-hotel-logo.png',
+    apple: '/anboss-hotel-logo.png',
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -108,6 +113,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${archivo.variable} ${workSans.variable} ${playfair.variable} ${greatVibes.variable}`}
     >
       <head>
+        <link rel="icon" href="/anboss-hotel-logo.png" sizes="any" />
+        <link rel="apple-touch-icon" href="/anboss-hotel-logo.png" />
         <JsonLd />
       </head>
       <body className="overflow-x-clip bg-white font-sans text-brand-ink antialiased">
