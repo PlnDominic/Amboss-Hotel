@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
-import { Archivo, Work_Sans } from 'next/font/google';
+import { Archivo, Work_Sans, Playfair_Display, Great_Vibes } from 'next/font/google';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import JsonLd from '@/components/JsonLd';
 import './globals.css';
 
 const archivo = Archivo({
@@ -16,21 +18,122 @@ const workSans = Work_Sans({
   variable: '--font-worksans',
 });
 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-playfair',
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-greatvibes',
+});
+
 export const metadata: Metadata = {
-  title: 'Anboss Hotel in Santasi Apre, Kumasi',
+  metadataBase: new URL('https://anbosshotel.com'),
+  title: {
+    default: 'Anboss Hotel | Modern Rooms & Suites in Santasi Apire, Kumasi',
+    template: '%s | Anboss Hotel Kumasi',
+  },
   description:
-    'Anboss Hotel offers modern, air-conditioned rooms in Santasi Apre, Kumasi. Book your stay for business or leisure.',
+    'Book luxury, air-conditioned rooms at Anboss Hotel in Santasi Apire, Kumasi, Ghana (GPS: AG-0666-2011). Offers single, double, deluxe & executive rooms with free WiFi and 24/7 security.',
+  keywords: [
+    'Anboss Hotel',
+    'Anboss Hotel Kumasi',
+    'Santasi Apire Hotel',
+    'Hotel in Kumasi',
+    'Ghana Post GPS AG-0666-2011',
+    'Hotel in Santasi Apire',
+    'Kumasi luxury rooms',
+    'Kumasi accommodation',
+    'Book hotel Kumasi',
+    'Deluxe room Kumasi',
+  ],
+  authors: [{ name: 'Anboss Hotel' }],
+  creator: 'Anboss Hotel',
+  publisher: 'Anboss Hotel',
+  icons: {
+    icon: '/anboss-hotel-logo.png',
+    shortcut: '/anboss-hotel-logo.png',
+    apple: '/anboss-hotel-logo.png',
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: 'Anboss Hotel | Modern Rooms & Suites in Santasi Apire, Kumasi',
+    description:
+      'Book luxury, air-conditioned rooms at Anboss Hotel in Santasi Apire, Kumasi, Ghana (GPS: AG-0666-2011).',
+    url: 'https://anbosshotel.com',
+    siteName: 'Anboss Hotel',
+    images: [
+      {
+        url: '/hero-exterior.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Anboss Hotel Exterior in Santasi Apire, Kumasi',
+      },
+    ],
+    locale: 'en_GH',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Anboss Hotel | Modern Rooms & Suites in Santasi Apire, Kumasi',
+    description:
+      'Book luxury, air-conditioned rooms at Anboss Hotel in Santasi Apire, Kumasi, Ghana.',
+    images: ['/hero-exterior.webp'],
+  },
+  other: {
+    'geo.region': 'GH-AH',
+    'geo.placename': 'Kumasi',
+    'geo.position': '6.6662;-1.6508',
+    ICBM: '6.6662, -1.6508',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${workSans.variable}`}>
-      <body className="bg-white font-sans text-brand-ink antialiased">
-        <div className="mx-auto min-h-screen max-w-[1300px]">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+    <html
+      lang="en"
+      className={`${archivo.variable} ${workSans.variable} ${playfair.variable} ${greatVibes.variable}`}
+    >
+      <head>
+        <link rel="icon" href="/anboss-hotel-logo.png" sizes="any" />
+        <link rel="apple-touch-icon" href="/anboss-hotel-logo.png" />
+        <JsonLd />
+      </head>
+      <body className="overflow-x-clip bg-white font-sans text-brand-ink antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6JVRZP6SEW"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-6JVRZP6SEW');
+          `}
+        </Script>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );

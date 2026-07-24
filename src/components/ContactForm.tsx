@@ -15,8 +15,8 @@ const EMPTY_FORM: ContactFormValues = {
 };
 
 const inputClass =
-  'w-full box-border rounded-xl border border-brand-input-border bg-white px-4 py-3 font-[inherit] text-[15px]';
-const labelClass = 'mb-1.5 block text-[13px] font-semibold text-brand-muted';
+  'w-full box-border rounded-none border border-brand-input-border bg-white px-4 py-3 font-[inherit] text-[14px] outline-none focus:border-brand-accent';
+const labelClass = 'mb-1.5 block text-xs font-bold uppercase tracking-wider text-brand-muted';
 
 export default function ContactForm() {
   const [form, setForm] = useState<ContactFormValues>(EMPTY_FORM);
@@ -36,7 +36,7 @@ export default function ContactForm() {
     return (
       <div className="py-10 text-center">
         <div className="mb-3 font-display text-[22px] font-extrabold text-brand-ink">Thank you!</div>
-        <div className="text-[15px] leading-[1.6] text-brand-muted">
+        <div className="text-[14px] leading-relaxed text-brand-muted">
           Your enquiry has been received. We&apos;ll get back to you within 24 hours, or you can call us
           directly for a faster response.
         </div>
@@ -46,19 +46,18 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div className="mb-0.5 font-display text-xl font-bold text-brand-ink">Send an Enquiry</div>
       <div>
         <label className={labelClass}>Full Name</label>
-        <input required type="text" value={form.name} onChange={setField('name')} className={inputClass} />
+        <input required type="text" value={form.name} onChange={setField('name')} className={inputClass} placeholder="e.g. John Doe" />
       </div>
       <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
         <div>
           <label className={labelClass}>Email</label>
-          <input required type="email" value={form.email} onChange={setField('email')} className={inputClass} />
+          <input required type="email" value={form.email} onChange={setField('email')} className={inputClass} placeholder="john@example.com" />
         </div>
         <div>
           <label className={labelClass}>Phone</label>
-          <input type="tel" value={form.phone} onChange={setField('phone')} className={inputClass} />
+          <input type="tel" value={form.phone} onChange={setField('phone')} className={inputClass} placeholder="+233 54 188 6633" />
         </div>
       </div>
       <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-3">
@@ -72,7 +71,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label className={labelClass}>Guests</label>
-          <input type="number" min={1} value={form.guests} onChange={setField('guests')} className={inputClass} />
+          <input type="number" min={1} value={form.guests} onChange={setField('guests')} className={inputClass} placeholder="1" />
         </div>
       </div>
       <div>
@@ -82,11 +81,12 @@ export default function ContactForm() {
           value={form.message}
           onChange={setField('message')}
           className={`${inputClass} resize-y`}
+          placeholder="How can we assist you?"
         />
       </div>
       <button
         type="submit"
-        className="mt-1.5 rounded-full bg-brand-accent py-3.5 text-[15px] font-bold text-white"
+        className="mt-1.5 rounded-none bg-brand-accent py-3.5 text-xs font-extrabold uppercase tracking-widest text-white transition-colors hover:bg-brand-accent-hover cursor-pointer"
       >
         Send Enquiry
       </button>
