@@ -17,7 +17,10 @@ export default function Logo({ dark }: LogoProps) {
   );
 
   const tagline = (
-    <span className={`font-script text-sm leading-none ${dark ? 'text-brand-accent' : 'text-brand-accent'}`}>
+    <span
+      className="mt-0.5 text-[10px] leading-none tracking-wide text-brand-muted-2"
+      style={{ fontFamily: 'Aptos, sans-serif' }}
+    >
       Home Sweet Home
     </span>
   );
