@@ -4,7 +4,7 @@ import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact Anboss Hotel',
-  description: 'Get in touch with Anboss Hotel in Santasi Apre, Kumasi, or send an enquiry.',
+  description: 'Get in touch with Anboss Hotel in Santasi Apire, Kumasi, or send an enquiry.',
 };
 
 export default function ContactPage() {
@@ -40,7 +40,7 @@ export default function ContactPage() {
               <span className="font-bold text-brand-ink">Postal Address:</span> P. O. Box H
             </div>
             <div>
-              <span className="font-bold text-brand-ink">Location:</span> Santasi Apre, Kumasi
+              <span className="font-bold text-brand-ink">Location:</span> Santasi Apire, Kumasi
             </div>
             <div>
               <span className="font-bold text-brand-ink">GPS Address:</span> AG-0666-2011
@@ -51,7 +51,7 @@ export default function ContactPage() {
           </div>
           <iframe
             title="Anboss Hotel location map"
-            src="https://www.google.com/maps?q=Santasi+Apre,+Kumasi,+Ghana&output=embed"
+            src="https://www.google.com/maps?q=Santasi+Apire,+Kumasi,+Ghana&output=embed"
             className="h-[260px] w-full border-0"
             loading="lazy"
           />

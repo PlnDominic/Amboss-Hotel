@@ -32,7 +32,7 @@ export default function HomePage() {
           <div className="mt-3 flex items-center justify-center gap-4">
             <span className="h-[1px] w-12 bg-white/60" />
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-white/90">
-              SANTASI APRE, KUMASI
+              SANTASI APIRE, KUMASI
             </span>
             <span className="h-[1px] w-12 bg-white/60" />
           </div>
@@ -65,7 +65,7 @@ export default function HomePage() {
           </h2>
           <FlourishDivider />
           <p className="mx-auto mt-4 max-w-[720px] text-sm leading-relaxed text-brand-muted">
-            On arrival you&apos;re welcomed into a spacious, modern air-conditioned home in Santasi Apre, Kumasi, with well-appointed single, double, deluxe, and executive rooms built for corporate travel and easy getaways alike.
+            On arrival you&apos;re welcomed into a spacious, modern air-conditioned home in Santasi Apire, Kumasi, with well-appointed single, double, deluxe, and executive rooms built for corporate travel and easy getaways alike.
           </p>
 
           {/* 4 Column Room Cards Grid (Sharp Square Edges) */}

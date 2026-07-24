@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     name: 'Ama Osei',
     role: 'Weekend Getaway',
     rating: 5,
-    text: 'Excellent service and extremely neat rooms. The bed was incredibly comfortable and the location in Santasi Apre is peaceful yet accessible. I will definitely be back!',
+    text: 'Excellent service and extremely neat rooms. The bed was incredibly comfortable and the location in Santasi Apire is peaceful yet accessible. I will definitely be back!',
     date: 'April 2026',
   },
 ];

@@ -117,7 +117,7 @@ function renderEmailDocument(options: { previewText: string; eyebrow: string; he
                 </tr>
               </table>
               <div style="margin-top:16px;font-family:${SANS};font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#c9c2b8">
-                Santasi Apre &middot; Kumasi &middot; Ghana
+                Santasi Apire &middot; Kumasi &middot; Ghana
               </div>
             </td>
           </tr>

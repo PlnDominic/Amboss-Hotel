@@ -4,7 +4,7 @@ export const rooms: RoomInfo[] = [
   {
     key: 'single',
     name: 'Single Room',
-    location: 'Santasi Apre, Kumasi',
+    location: 'Santasi Apire, Kumasi',
     homeHeadline: 'A quiet, comfortable room built for the solo traveller',
     roomsDescription:
       'A comfortable, quiet room built for the solo traveller, ideal for corporate stays in Kumasi.',
@@ -28,7 +28,7 @@ export const rooms: RoomInfo[] = [
   {
     key: 'double',
     name: 'Double Room',
-    location: 'Santasi Apre, Kumasi',
+    location: 'Santasi Apire, Kumasi',
     homeHeadline: 'A big room with a double bed, perfect for two',
     roomsDescription:
       'A big, well-equipped room with a double bed, perfect for couples or travellers who want extra room to relax.',
@@ -53,7 +53,7 @@ export const rooms: RoomInfo[] = [
   {
     key: 'deluxe',
     name: 'Deluxe Room',
-    location: 'Santasi Apre, Kumasi',
+    location: 'Santasi Apire, Kumasi',
     homeHeadline: 'A big room with a queen bed and classic furnishings',
     roomsDescription:
       'A big, elegantly furnished room with a queen bed and classic furnishings, perfect for a relaxed stay.',
@@ -78,7 +78,7 @@ export const rooms: RoomInfo[] = [
   {
     key: 'executive',
     name: 'Executive Room',
-    location: 'Santasi Apre, Kumasi',
+    location: 'Santasi Apire, Kumasi',
     homeHeadline: 'Our most spacious room, with a king bed and lounge area',
     roomsDescription:
       'Our most spacious and well-appointed room, with a big room size, a king bed and a relaxing lounge area, ideal for longer or executive stays.',

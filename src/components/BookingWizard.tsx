@@ -230,7 +230,7 @@ export default function BookingWizard() {
               <div>
                 <h2 className="mb-1 font-display text-2xl font-extrabold text-brand-ink">Choose Dates & Room</h2>
                 <p className="mb-6.5 text-[14px] text-brand-muted-2">
-                  Select your arrival/departure dates and check out our room options in Santasi Apre, Kumasi.
+                  Select your arrival/departure dates and check out our room options in Santasi Apire, Kumasi.
                 </p>
 
                 <div className="mb-6.5 grid grid-cols-1 gap-5 sm:grid-cols-3">

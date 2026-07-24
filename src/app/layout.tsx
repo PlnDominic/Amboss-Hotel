@@ -29,9 +29,9 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: 'Anboss Hotel in Santasi Apre, Kumasi',
+  title: 'Anboss Hotel in Santasi Apire, Kumasi',
   description:
-    'Anboss Hotel offers modern, air-conditioned rooms in Santasi Apre, Kumasi. Book your stay for business or leisure.',
+    'Anboss Hotel offers modern, air-conditioned rooms in Santasi Apire, Kumasi. Book your stay for business or leisure.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

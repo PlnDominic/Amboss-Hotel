@@ -8,7 +8,7 @@ import { rooms } from '@/data/rooms';
 export const metadata: Metadata = {
   title: 'Rooms & Suites | Anboss Hotel Kumasi',
   description:
-    'Explore luxury air-conditioned rooms across four distinct types in Santasi Apre, Kumasi: Single, Double, Deluxe, and Executive.',
+    'Explore luxury air-conditioned rooms across four distinct types in Santasi Apire, Kumasi: Single, Double, Deluxe, and Executive.',
 };
 
 export default function RoomsPage() {
@@ -34,7 +34,7 @@ export default function RoomsPage() {
           </h1>
           <FlourishDivider dark />
           <p className="mx-auto mt-3 max-w-[680px] text-xs md:text-sm leading-relaxed text-white/80">
-            Discover our well-appointed suites in Santasi Apre, Kumasi. Designed for business travelers, couples, and families seeking refined comfort, air conditioning, and warm Ghanaian hospitality.
+            Discover our well-appointed suites in Santasi Apire, Kumasi. Designed for business travelers, couples, and families seeking refined comfort, air conditioning, and warm Ghanaian hospitality.
           </p>
         </div>
       </section>
