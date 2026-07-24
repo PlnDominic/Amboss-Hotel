@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiCursorArrowRipple } from 'react-icons/hi2';
-import { Layers, Send, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { PiHandTap } from 'react-icons/pi';
 import { IoIosTimer } from 'react-icons/io';
 import FlourishDivider from './FlourishDivider';
@@ -21,14 +21,7 @@ const FAQ_ITEMS: AccordionItem[] = [
     title: 'What are the check-in and check-out times?',
     icon: <HiCursorArrowRipple className="-rotate-10 size-6 md:size-[1.625rem]" />,
     content:
-      'Check-in is from 12:00 PM onwards, and check-out is by 11:00 AM. Early check-in or late check-out can be arranged upon request during booking or with front desk.',
-  },
-  {
-    id: 2,
-    title: 'Is breakfast included with my room reservation?',
-    icon: <Layers className="size-6 md:size-[1.625rem]" />,
-    content:
-      'Yes! Every room booking at Anboss Hotel includes a complimentary fresh gourmet breakfast served daily from 6:30 AM to 10:00 AM.',
+      'Check-in begins at 12:00 PM, and check-out is by 12:00 AM. Early check-in or late check-out can be arranged upon request during booking or with front desk.',
   },
   {
     id: 3,
@@ -36,13 +29,6 @@ const FAQ_ITEMS: AccordionItem[] = [
     icon: <PiHandTap className="-rotate-20 size-6 md:size-[1.625rem]" />,
     content:
       'Yes! Our spacious hotel courtyard and open event grounds are available for rental for social occasions including weddings, naming ceremonies, birthday parties, and corporate receptions. Contact our team for custom event packages.',
-  },
-  {
-    id: 4,
-    title: 'Do you offer Kumasi Airport pickup shuttle service?',
-    icon: <Send className="size-6 md:size-[1.625rem]" />,
-    content:
-      'Yes, we provide direct one-way or round-trip shuttle pickups from Kumasi Airport to the hotel in Santasi Apre. You can easily add shuttle service when booking online.',
   },
   {
     id: 5,
@@ -56,7 +42,7 @@ const FAQ_ITEMS: AccordionItem[] = [
     title: 'How do I locate Anboss Hotel in Kumasi?',
     icon: <HiCursorArrowRipple className="size-6 md:size-[1.625rem]" />,
     content:
-      'We are located in Santasi Apre, Kumasi, Ghana. Our official digital address is Ghana Post GPS: AG-0666-2011 (Postal: SN 284, Santasi). You can find us on Google Maps or contact front desk at +233 (0)541-886633 / 0244 066999.',
+      'We are located in Santasi Apire, Kumasi, Ghana. Our official digital address is Ghana Post GPS: AG-0666-2011 (Postal: SN 284, Santasi). You can find us on Google Maps or contact front desk at 0244 066999.',
   },
 ];
 

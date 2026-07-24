@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { Heart, Baby, PartyPopper } from 'lucide-react';
 import FlourishDivider from '@/components/FlourishDivider';
 import QuickSearchBar from '@/components/QuickSearchBar';
 import TestimonialsSlider from '@/components/TestimonialsSlider';
@@ -129,70 +130,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* COURTYARD & EVENT FLOOR RENTALS SECTION */}
-      <section className="relative overflow-hidden bg-[#181818] py-20 px-6 text-white">
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <Image
-            src="/hotel-courtyard.webp"
-            alt="Anboss Hotel Event Courtyard"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative z-10 mx-auto max-w-[1240px] text-center">
-          <span className="font-script text-3xl text-brand-accent">Celebrations &amp; Gatherings</span>
-          <h2 className="font-serif text-3xl md:text-4xl font-extrabold uppercase tracking-wider text-white mt-1">
-            COURTYARD &amp; EVENT FLOOR RENTALS
-          </h2>
-          <FlourishDivider dark />
-          <p className="mx-auto mt-4 max-w-[760px] text-xs md:text-sm leading-relaxed text-white/80">
-            Host your memorable social events at Anboss Hotel in Santasi Apire, Kumasi. Our spacious hotel courtyard and open event grounds are available for hire for weddings, naming ceremonies, anniversary parties, and private celebrations.
-          </p>
-
-          {/* 3 Event Cards Grid */}
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="border border-white/10 bg-black/60 p-7 text-left shadow-lg backdrop-blur-sm rounded-none">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center bg-brand-accent text-white text-2xl">
-                💍
-              </div>
-              <h3 className="font-serif text-lg font-bold text-white">Weddings &amp; Receptions</h3>
-              <p className="mt-2 text-xs leading-relaxed text-white/70">
-                Celebrate your special day in our elegant outdoor courtyard space with full access to guest accommodation for your wedding party.
-              </p>
-            </div>
-
-            <div className="border border-white/10 bg-black/60 p-7 text-left shadow-lg backdrop-blur-sm rounded-none">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center bg-brand-accent text-white text-2xl">
-                👶
-              </div>
-              <h3 className="font-serif text-lg font-bold text-white">Naming Ceremonies</h3>
-              <p className="mt-2 text-xs leading-relaxed text-white/70">
-                A serene and welcoming environment to welcome your newborn surrounded by family, with secure parking and catering assistance.
-              </p>
-            </div>
-
-            <div className="border border-white/10 bg-black/60 p-7 text-left shadow-lg backdrop-blur-sm rounded-none">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center bg-brand-accent text-white text-2xl">
-                🥳
-              </div>
-              <h3 className="font-serif text-lg font-bold text-white">Parties &amp; Social Galas</h3>
-              <p className="mt-2 text-xs leading-relaxed text-white/70">
-                Ideal for milestone birthday bashes, family reunions, corporate mixers, and private evening celebrations.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-12">
-            <Link
-              href="/contact"
-              className="inline-block rounded-none bg-brand-accent px-9 py-3.5 text-xs font-extrabold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-brand-accent-hover"
-            >
-              INQUIRE ABOUT EVENT RENTALS →
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* GALLERY SECTION WITH STAGGERED MOSAIC LAYOUT */}
       <section className="bg-brand-surface py-20 px-6">
         <div className="mx-auto max-w-[1240px] text-center">
@@ -293,6 +230,70 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COURTYARD & EVENT FLOOR RENTALS SECTION */}
+      <section className="relative overflow-hidden bg-[#181818] py-20 px-6 text-white">
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <Image
+            src="/hotel-courtyard.webp"
+            alt="Anboss Hotel Event Courtyard"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="relative z-10 mx-auto max-w-[1240px] text-center">
+          <span className="font-script text-3xl text-brand-accent">Celebrations &amp; Gatherings</span>
+          <h2 className="font-serif text-3xl md:text-4xl font-extrabold uppercase tracking-wider text-white mt-1">
+            COURTYARD &amp; EVENT FLOOR RENTALS
+          </h2>
+          <FlourishDivider dark />
+          <p className="mx-auto mt-4 max-w-[760px] text-xs md:text-sm leading-relaxed text-white/80">
+            Host your memorable social events at Anboss Hotel in Santasi Apire, Kumasi. Our spacious hotel courtyard and open event grounds are available for hire for weddings, naming ceremonies, anniversary parties, and private celebrations.
+          </p>
+
+          {/* 3 Event Cards Grid */}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="border border-white/10 bg-black/60 p-7 text-left shadow-lg backdrop-blur-sm rounded-none">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center bg-brand-accent text-white">
+                <Heart className="size-6" />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-white">Weddings &amp; Receptions</h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/70">
+                Celebrate your special day in our elegant outdoor courtyard space with full access to guest accommodation for your wedding party.
+              </p>
+            </div>
+
+            <div className="border border-white/10 bg-black/60 p-7 text-left shadow-lg backdrop-blur-sm rounded-none">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center bg-brand-accent text-white">
+                <Baby className="size-6" />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-white">Naming Ceremonies</h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/70">
+                A serene and welcoming environment to welcome your newborn surrounded by family, with secure parking and catering assistance.
+              </p>
+            </div>
+
+            <div className="border border-white/10 bg-black/60 p-7 text-left shadow-lg backdrop-blur-sm rounded-none">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center bg-brand-accent text-white">
+                <PartyPopper className="size-6" />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-white">Parties &amp; Social Galas</h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/70">
+                Ideal for milestone birthday bashes, family reunions, corporate mixers, and private evening celebrations.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12">
+            <Link
+              href="/contact"
+              className="inline-block rounded-none bg-brand-accent px-9 py-3.5 text-xs font-extrabold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-brand-accent-hover"
+            >
+              INQUIRE ABOUT EVENT RENTALS →
+            </Link>
           </div>
         </div>
       </section>
