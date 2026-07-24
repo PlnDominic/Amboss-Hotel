@@ -6,7 +6,7 @@ import FlourishDivider from '@/components/FlourishDivider';
 export const metadata: Metadata = {
   title: 'Contact Us | Anboss Hotel Kumasi',
   description:
-    'Get in touch with Anboss Hotel in Santasi Apre, Kumasi (GPS: AG-0666-2011, Postal: SN 284, Santasi). Call or send an online enquiry.',
+    'Get in touch with Anboss Hotel in Santasi Apire, Kumasi (GPS: AG-0666-2011, Postal: SN 284, Santasi). Call or send an online enquiry.',
 };
 
 export default function ContactPage() {
@@ -21,7 +21,7 @@ export default function ContactPage() {
           </h1>
           <FlourishDivider dark />
           <p className="mt-3 text-xs md:text-sm text-white/80 leading-relaxed max-w-[620px] mx-auto">
-            Have questions about room availability, group reservations, or airport shuttle pickups? Contact our 24/7 front desk team in Santasi Apre, Kumasi.
+            Have questions about room availability or group reservations? Contact our front desk team in Santasi Apire, Kumasi.
           </p>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function ContactPage() {
           <div className="flex flex-col gap-4 text-xs leading-relaxed text-brand-muted">
             <div className="flex items-start gap-3 border-b border-brand-line/60 pb-3">
               <span className="font-bold text-brand-ink w-28 shrink-0 uppercase tracking-wider">Location:</span>
-              <span className="text-brand-ink">Santasi Apre, Kumasi, Ghana</span>
+              <span className="text-brand-ink">Santasi Apire, Kumasi, Ghana</span>
             </div>
 
             <div className="flex items-start gap-3 border-b border-brand-line/60 pb-3">
@@ -60,7 +60,6 @@ export default function ContactPage() {
             <div className="flex items-start gap-3 border-b border-brand-line/60 pb-3">
               <span className="font-bold text-brand-ink w-28 shrink-0 uppercase tracking-wider">Telephone:</span>
               <div className="flex flex-col gap-1 text-brand-ink font-medium">
-                <a href="tel:+233541886633" className="hover:text-brand-accent transition-colors">+233 (0)541-886633</a>
                 <a href="tel:+233244066999" className="hover:text-brand-accent transition-colors">+233 (0)244-066999</a>
                 <a href="tel:+233201185123" className="hover:text-brand-accent transition-colors">+233 (0)201-185123</a>
               </div>
@@ -82,7 +81,7 @@ export default function ContactPage() {
 
             <div className="flex items-start gap-3 pt-1">
               <span className="font-bold text-brand-ink w-28 shrink-0 uppercase tracking-wider">Check-in / out:</span>
-              <span>Check-in 2:00 PM &bull; Check-out 11:00 AM</span>
+              <span>Check-in 12:00 PM &bull; Check-out 12:00 AM</span>
             </div>
           </div>
 
@@ -90,7 +89,7 @@ export default function ContactPage() {
           <div className="mt-8 overflow-hidden border border-brand-line rounded-none shadow-sm">
             <iframe
               title="Anboss Hotel location map"
-              src="https://www.google.com/maps?q=Santasi+Apre,+Kumasi,+Ghana&output=embed"
+              src="https://www.google.com/maps?q=Santasi+Apire,+Kumasi,+Ghana&output=embed"
               className="h-[240px] w-full border-0"
               loading="lazy"
             />

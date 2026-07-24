@@ -6,9 +6,9 @@ export default function JsonLd() {
     name: 'Anboss Hotel',
     alternateName: 'Anboss Hotel Kumasi',
     description:
-      'Modern, air-conditioned rooms and suites in Santasi Apre, Kumasi, Ghana. Offers single, double, deluxe, and executive accommodations with bed & breakfast, free WiFi, and 24/7 security.',
+      'Modern, air-conditioned rooms and suites in Santasi Apire, Kumasi, Ghana. Offers single, double, deluxe, and executive accommodations with free WiFi and 24/7 security.',
     url: 'https://anbosshotel.com',
-    telephone: '+233541886633',
+    telephone: '+233244066999',
     email: 'info@anbosshotel.com',
     priceRange: 'GHS 300 - GHS 600',
     starRating: {
@@ -17,7 +17,7 @@ export default function JsonLd() {
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Santasi Apre',
+      streetAddress: 'Santasi Apire',
       addressLocality: 'Kumasi',
       addressRegion: 'Ashanti Region',
       postalCode: 'AG-0666-2011',
@@ -28,7 +28,7 @@ export default function JsonLd() {
       latitude: 6.6662,
       longitude: -1.6508,
     },
-    hasMap: 'https://maps.google.com/?q=Santasi+Apre+Kumasi+Ghana',
+    hasMap: 'https://maps.google.com/?q=Santasi+Apire+Kumasi+Ghana',
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -48,8 +48,8 @@ export default function JsonLd() {
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Free High-Speed WiFi', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Air Conditioning', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Complimentary Breakfast', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Airport Pickup Shuttle', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Restaurant & Bar', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Swimming Pool', value: true },
       { '@type': 'LocationFeatureSpecification', name: '24/7 Security & CCTV', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'On-Site Parking', value: true },
     ],
@@ -57,7 +57,7 @@ export default function JsonLd() {
       {
         '@type': 'HotelRoom',
         name: 'Single Room',
-        description: 'Cozy, modern room with air conditioning, queen bed, and ensuite bathroom.',
+        description: 'Cozy, modern room with air conditioning, single bed, and ensuite bathroom.',
         offers: {
           '@type': 'Offer',
           price: '300.00',
@@ -68,7 +68,7 @@ export default function JsonLd() {
       {
         '@type': 'HotelRoom',
         name: 'Double Room',
-        description: 'Spacious room with king bed, work desk, smart TV, and air conditioning.',
+        description: 'Spacious room with double bed, DSTV, and air conditioning.',
         offers: {
           '@type': 'Offer',
           price: '400.00',
@@ -89,8 +89,8 @@ export default function JsonLd() {
       },
       {
         '@type': 'HotelRoom',
-        name: 'Executive Suite',
-        description: 'Premier executive suite with living room space, king bed, and private balcony.',
+        name: 'Executive Room',
+        description: 'Our most spacious room, with a big room size, a king bed, and a relaxing lounge area.',
         offers: {
           '@type': 'Offer',
           price: '600.00',

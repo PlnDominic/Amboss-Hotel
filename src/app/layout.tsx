@@ -33,18 +33,18 @@ const greatVibes = Great_Vibes({
 export const metadata: Metadata = {
   metadataBase: new URL('https://anbosshotel.com'),
   title: {
-    default: 'Anboss Hotel | Modern Rooms & Suites in Santasi Apre, Kumasi',
+    default: 'Anboss Hotel | Modern Rooms & Suites in Santasi Apire, Kumasi',
     template: '%s | Anboss Hotel Kumasi',
   },
   description:
-    'Book luxury, air-conditioned rooms at Anboss Hotel in Santasi Apre, Kumasi, Ghana (GPS: AG-0666-2011). Offers single, double, deluxe & executive rooms with bed & breakfast, free WiFi, and 24/7 security.',
+    'Book luxury, air-conditioned rooms at Anboss Hotel in Santasi Apire, Kumasi, Ghana (GPS: AG-0666-2011). Offers single, double, deluxe & executive rooms with free WiFi and 24/7 security.',
   keywords: [
     'Anboss Hotel',
     'Anboss Hotel Kumasi',
-    'Santasi Apre Hotel',
+    'Santasi Apire Hotel',
     'Hotel in Kumasi',
     'Ghana Post GPS AG-0666-2011',
-    'Hotel in Santasi Apre',
+    'Hotel in Santasi Apire',
     'Kumasi luxury rooms',
     'Kumasi accommodation',
     'Book hotel Kumasi',
@@ -64,9 +64,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'Anboss Hotel | Modern Rooms & Suites in Santasi Apre, Kumasi',
+    title: 'Anboss Hotel | Modern Rooms & Suites in Santasi Apire, Kumasi',
     description:
-      'Book luxury, air-conditioned rooms at Anboss Hotel in Santasi Apre, Kumasi, Ghana (GPS: AG-0666-2011). Bed & breakfast included.',
+      'Book luxury, air-conditioned rooms at Anboss Hotel in Santasi Apire, Kumasi, Ghana (GPS: AG-0666-2011).',
     url: 'https://anbosshotel.com',
     siteName: 'Anboss Hotel',
     images: [
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
         url: '/hero-exterior.webp',
         width: 1200,
         height: 630,
-        alt: 'Anboss Hotel Exterior in Santasi Apre, Kumasi',
+        alt: 'Anboss Hotel Exterior in Santasi Apire, Kumasi',
       },
     ],
     locale: 'en_GH',
@@ -82,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anboss Hotel | Modern Rooms & Suites in Santasi Apre, Kumasi',
+    title: 'Anboss Hotel | Modern Rooms & Suites in Santasi Apire, Kumasi',
     description:
-      'Book luxury, air-conditioned rooms at Anboss Hotel in Santasi Apre, Kumasi, Ghana. Bed & breakfast included.',
+      'Book luxury, air-conditioned rooms at Anboss Hotel in Santasi Apire, Kumasi, Ghana.',
     images: ['/hero-exterior.webp'],
   },
   other: {

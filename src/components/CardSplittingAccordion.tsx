@@ -21,7 +21,7 @@ const FAQ_ITEMS: AccordionItem[] = [
     title: 'What are the check-in and check-out times?',
     icon: <HiCursorArrowRipple className="-rotate-10 size-6 md:size-[1.625rem]" />,
     content:
-      'Standard check-in begins at 2:00 PM, and check-out is by 11:00 AM. Early check-in or late check-out can be arranged upon request during booking or with front desk.',
+      'Check-in is from 12:00 PM onwards, and check-out is by 11:00 AM. Early check-in or late check-out can be arranged upon request during booking or with front desk.',
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ const FAQ_ITEMS: AccordionItem[] = [
     title: 'How do I locate Anboss Hotel in Kumasi?',
     icon: <HiCursorArrowRipple className="size-6 md:size-[1.625rem]" />,
     content:
-      'We are located in Santasi Apre, Kumasi, Ghana. Our official digital address is Ghana Post GPS: AG-0666-2011 (Postal: SN 284, Santasi). You can find us on Google Maps or contact front desk at +233 (0)541-886633.',
+      'We are located in Santasi Apre, Kumasi, Ghana. Our official digital address is Ghana Post GPS: AG-0666-2011 (Postal: SN 284, Santasi). You can find us on Google Maps or contact front desk at +233 (0)541-886633 / 0244 066999.',
   },
 ];
 
