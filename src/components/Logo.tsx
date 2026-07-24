@@ -9,16 +9,35 @@ export default function Logo({ dark }: LogoProps) {
     <Image
       src="/anboss-hotel-logo.png"
       alt="Anboss Hotel"
-      width={581}
-      height={275}
+      width={1586}
+      height={992}
       priority
       className="h-11 w-auto"
     />
   );
 
+  const tagline = (
+    <span
+      className="mt-0.5 text-[8px] leading-none tracking-wide text-brand-muted-2"
+      style={{ fontFamily: 'Aptos, sans-serif' }}
+    >
+      Home Sweet Home
+    </span>
+  );
+
   if (!dark) {
-    return image;
+    return (
+      <span className="flex flex-col items-center">
+        {image}
+        {tagline}
+      </span>
+    );
   }
 
-  return <div className="inline-flex rounded-xl bg-white px-3 py-2">{image}</div>;
+  return (
+    <span className="flex flex-col items-center">
+      <span className="inline-flex rounded-xl bg-white px-3 py-2">{image}</span>
+      {tagline}
+    </span>
+  );
 }

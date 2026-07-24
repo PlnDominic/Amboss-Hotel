@@ -51,7 +51,7 @@ export default function Header() {
         {/* Book Now Button (Bold CTA with Sharp Square Edges) */}
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="tel:+233541886633"
+            href="tel:+233244066999"
             className="rounded-none bg-brand-surface px-5 py-2.5 text-xs font-bold text-brand-ink transition-colors hover:bg-brand-line"
           >
             Call Us

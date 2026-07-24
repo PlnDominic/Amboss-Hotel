@@ -32,14 +32,14 @@ export default function HomePage() {
           <div className="mt-3 flex items-center justify-center gap-4">
             <span className="h-[1px] w-12 bg-white/60" />
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-white/90">
-              SANTASI APRE, KUMASI
+              SANTASI APIRE, KUMASI
             </span>
             <span className="h-[1px] w-12 bg-white/60" />
           </div>
 
           <div className="mt-8 flex gap-4">
             <a
-              href="tel:+233541886633"
+              href="tel:+233244066999"
               className="rounded-none bg-white/20 backdrop-blur-md border border-white/60 px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-brand-ink"
             >
               Call Us
@@ -65,7 +65,7 @@ export default function HomePage() {
           </h2>
           <FlourishDivider />
           <p className="mx-auto mt-4 max-w-[720px] text-sm leading-relaxed text-brand-muted">
-            On arrival you&apos;re welcomed into a spacious, modern air-conditioned home in Santasi Apre, Kumasi, with well-appointed single, double, deluxe, and executive rooms built for corporate travel and easy getaways alike.
+            On arrival you&apos;re welcomed into a spacious, modern air-conditioned home in Santasi Apire, Kumasi, with well-appointed single, double, deluxe, and executive rooms built for corporate travel and easy getaways alike.
           </p>
 
           {/* 4 Column Room Cards Grid (Sharp Square Edges) */}
@@ -141,7 +141,7 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {/* Column 1 */}
             <div className="flex flex-col gap-6">
-              {[galleryImages[0], galleryImages[4]].map((img, idx) => (
+              {[galleryImages[0], galleryImages[1]].map((img, idx) => (
                 <div
                   key={img.id}
                   className={`group relative overflow-hidden rounded-none bg-black/30 shadow-md ${
@@ -201,7 +201,7 @@ export default function HomePage() {
 
             {/* Column 3 */}
             <div className="flex flex-col gap-6">
-              {[galleryImages[3], galleryImages[1]].map((img, idx) => (
+              {[galleryImages[3], galleryImages[4]].map((img, idx) => (
                 <div
                   key={img.id}
                   className={`group relative overflow-hidden rounded-none bg-black/30 shadow-md ${

@@ -7,34 +7,45 @@ export interface Amenity {
 
 export const amenities: Amenity[] = [
   {
+    id: 'ac-rooms',
+    title: 'Air-Conditioned Rooms',
+    description: 'Modern, air-conditioned interiors throughout the hotel for a comfortable stay.',
+  },
+  {
+    id: 'conference-hall',
+    title: 'Conference Hall',
+    description: 'A well-equipped conference hall suited to meetings, seminars and corporate events.',
+  },
+  {
+    id: 'restaurant-bar',
+    title: 'Restaurant & Bar',
+    description: 'A restaurant and bar on site, serving meals and drinks throughout your stay.',
+  },
+  {
     id: 'pool',
-    title: 'Pool Deck',
+    title: 'Swimming Pool',
     description: 'A stylish pool deck to relax in the afternoon sun with an ice-cold drink.',
     src: '/pool-deck.webp',
   },
   {
-    id: 'gym',
-    title: "Residents' Gym",
-    description: 'A private gym facility reserved exclusively for our guests.',
+    id: 'executive-rooms',
+    title: 'Executive Rooms',
+    description: 'Spacious executive rooms with a king bed and a relaxing lounge area.',
+    src: '/room-executive.webp',
   },
   {
-    id: 'bar',
-    title: 'Bar & Lounge',
-    description: 'Enjoy house wine, an ice-cold beer or a signature cocktail at our refreshing bar.',
+    id: 'dstv',
+    title: 'DSTV',
+    description: 'DSTV available in every room for news, sport and entertainment.',
   },
   {
-    id: 'breakfast',
-    title: 'Bed & Breakfast',
-    description: 'Every stay includes a full breakfast to start your day right.',
+    id: 'security',
+    title: '100% Security',
+    description: 'Round-the-clock security for the peace of mind of every guest.',
   },
   {
-    id: 'ac',
-    title: 'Air-Conditioned Comfort',
-    description: 'Modern, air-conditioned interiors throughout the hotel.',
-  },
-  {
-    id: 'business',
-    title: 'Business & Corporate Travel',
-    description: "A quiet, professional home base that's well suited to corporate and business travellers.",
+    id: 'internet',
+    title: 'Free Internet',
+    description: 'Free internet access throughout the hotel.',
   },
 ];

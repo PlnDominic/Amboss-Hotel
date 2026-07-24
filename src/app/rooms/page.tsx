@@ -8,7 +8,7 @@ import { rooms } from '@/data/rooms';
 export const metadata: Metadata = {
   title: 'Rooms & Suites | Anboss Hotel Kumasi',
   description:
-    'Explore 17 luxury air-conditioned rooms across four distinct types in Santasi Apre, Kumasi: Single, Double, Deluxe, and Executive.',
+    'Explore luxury air-conditioned rooms across four distinct types in Santasi Apire, Kumasi: Single, Double, Deluxe, and Executive.',
 };
 
 export default function RoomsPage() {
@@ -34,7 +34,7 @@ export default function RoomsPage() {
           </h1>
           <FlourishDivider dark />
           <p className="mx-auto mt-3 max-w-[680px] text-xs md:text-sm leading-relaxed text-white/80">
-            Discover our 17 well-appointed suites in Santasi Apre, Kumasi. Designed for business travelers, couples, and families seeking refined comfort, air conditioning, and warm Ghanaian hospitality.
+            Discover our well-appointed suites in Santasi Apire, Kumasi. Designed for business travelers, couples, and families seeking refined comfort, air conditioning, and warm Ghanaian hospitality.
           </p>
         </div>
       </section>
@@ -44,13 +44,13 @@ export default function RoomsPage() {
         <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-6 text-center md:text-left">
           <div className="flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center bg-brand-accent text-white font-bold text-sm">
-              ✓
+              🍽
             </span>
             <div>
               <h4 className="font-display text-xs font-bold uppercase tracking-wider text-brand-ink">
-                Bed &amp; Breakfast Included
+                Restaurant &amp; Bar
               </h4>
-              <p className="text-[11px] text-brand-muted">Fresh gourmet breakfast served every morning</p>
+              <p className="text-[11px] text-brand-muted">On-site restaurant and bar throughout your stay</p>
             </div>
           </div>
 
@@ -72,9 +72,9 @@ export default function RoomsPage() {
             </span>
             <div>
               <h4 className="font-display text-xs font-bold uppercase tracking-wider text-brand-ink">
-                High-Speed WiFi
+                Free Internet
               </h4>
-              <p className="text-[11px] text-brand-muted">Unlimited fast wireless internet</p>
+              <p className="text-[11px] text-brand-muted">Free internet access throughout the hotel</p>
             </div>
           </div>
 
@@ -84,9 +84,9 @@ export default function RoomsPage() {
             </span>
             <div>
               <h4 className="font-display text-xs font-bold uppercase tracking-wider text-brand-ink">
-                24/7 Gated Security
+                100% Security
               </h4>
-              <p className="text-[11px] text-brand-muted">Safe, private environment with CCTV</p>
+              <p className="text-[11px] text-brand-muted">Round-the-clock security for every guest</p>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function RoomsPage() {
                       <span className="font-display text-2xl font-extrabold text-brand-accent">
                         GHS {room.pricePerNight}
                       </span>
-                      <span className="text-xs text-brand-muted">per night (Taxes &amp; Breakfast included)</span>
+                      <span className="text-xs text-brand-muted">per night (Taxes included)</span>
                     </div>
 
                     <p className="mt-4 text-sm leading-relaxed text-brand-muted">
@@ -140,16 +140,16 @@ export default function RoomsPage() {
                     {/* Room Key Features */}
                     <div className="mt-6 grid grid-cols-2 gap-3 text-xs text-brand-ink border-t border-b border-brand-line py-4">
                       <div className="flex items-center gap-2">
-                        <span className="text-brand-accent font-bold">✓</span> Free High-Speed WiFi
-                      </div>
-                      <div className="flex items-center gap-2">
                         <span className="text-brand-accent font-bold">✓</span> Air Conditioning
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-brand-accent font-bold">✓</span> Ensuite Bathroom
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-brand-accent font-bold">✓</span> Complimentary Breakfast
+                        <span className="text-brand-accent font-bold">✓</span> DSTV Available
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-brand-accent font-bold">✓</span> 100% Security
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-brand-accent font-bold">✓</span> Flat-Screen Smart TV
@@ -181,7 +181,7 @@ export default function RoomsPage() {
                       BOOK THIS ROOM →
                     </Link>
                     <a
-                      href="tel:+233541886633"
+                      href="tel:+233244066999"
                       className="hidden sm:inline-block border border-brand-line bg-brand-surface px-6 py-3.5 text-xs font-bold text-brand-ink transition-colors hover:bg-brand-line"
                     >
                       Inquire via Phone
@@ -206,7 +206,7 @@ export default function RoomsPage() {
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <a
-              href="tel:+233541886633"
+              href="tel:+233244066999"
               className="bg-white/20 backdrop-blur border border-white/60 px-7 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-brand-ink"
             >
               Call Front Desk

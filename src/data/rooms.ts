@@ -4,14 +4,14 @@ export const rooms: RoomInfo[] = [
   {
     key: 'single',
     name: 'Single Room',
-    location: 'Santasi Apre, Kumasi',
+    location: 'Santasi Apire, Kumasi',
     homeHeadline: 'A quiet, comfortable room built for the solo traveller',
     roomsDescription:
       'A comfortable, quiet room built for the solo traveller, ideal for corporate stays in Kumasi.',
     bedType: '1 Single',
     bathroom: 'Private',
     wifi: 'Not included',
-    breakfast: 'Included',
+    breakfast: 'Not included',
     tags: [
       'Air-conditioned',
       'TV',
@@ -28,14 +28,14 @@ export const rooms: RoomInfo[] = [
   {
     key: 'double',
     name: 'Double Room',
-    location: 'Santasi Apre, Kumasi',
+    location: 'Santasi Apire, Kumasi',
     homeHeadline: 'A big room with a double bed, perfect for two',
     roomsDescription:
       'A big, well-equipped room with a double bed, perfect for couples or travellers who want extra room to relax.',
     bedType: '1 Double',
     bathroom: 'Private',
     wifi: 'Free',
-    breakfast: 'Included',
+    breakfast: 'Not included',
     tags: [
       'Air-conditioned',
       'TV',
@@ -53,14 +53,14 @@ export const rooms: RoomInfo[] = [
   {
     key: 'deluxe',
     name: 'Deluxe Room',
-    location: 'Santasi Apre, Kumasi',
+    location: 'Santasi Apire, Kumasi',
     homeHeadline: 'A big room with a queen bed and classic furnishings',
     roomsDescription:
       'A big, elegantly furnished room with a queen bed and classic furnishings, perfect for a relaxed stay.',
     bedType: '1 Queen',
     bathroom: 'Private',
     wifi: 'Free',
-    breakfast: 'Included',
+    breakfast: 'Not included',
     tags: [
       'Air-conditioned',
       'TV',
@@ -78,14 +78,14 @@ export const rooms: RoomInfo[] = [
   {
     key: 'executive',
     name: 'Executive Room',
-    location: 'Santasi Apre, Kumasi',
+    location: 'Santasi Apire, Kumasi',
     homeHeadline: 'Our most spacious room, with a king bed and lounge area',
     roomsDescription:
       'Our most spacious and well-appointed room, with a big room size, a king bed and a relaxing lounge area, ideal for longer or executive stays.',
     bedType: '1 King',
     bathroom: 'Private',
     wifi: 'Free',
-    breakfast: 'Included',
+    breakfast: 'Not included',
     tags: [
       'Air-conditioned',
       'TV',

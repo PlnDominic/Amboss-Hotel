@@ -3,7 +3,7 @@ import BookingWizard from '@/components/BookingWizard';
 
 export const metadata: Metadata = {
   title: 'Book Your Stay | Anboss Hotel',
-  description: '14 well-appointed rooms in Santasi Apre, Kumasi. Book your stay online easily with our booking wizard.',
+  description: 'Well-appointed rooms in Santasi Apire, Kumasi. Book your stay online easily with our booking wizard.',
 };
 
 export default function BookPage() {

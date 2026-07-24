@@ -104,8 +104,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 text-center text-xs text-white/50">
-          © {new Date().getFullYear()} Anboss Hotel. All rights reserved.
+        <div className="flex flex-col items-center gap-2 pt-8 text-center text-xs text-white/50">
+          <span>© {new Date().getFullYear()} Anboss Hotel. All rights reserved.</span>
+          <span>
+            Developed by{' '}
+            <a
+              href="https://www.ecstasytechnologies.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-white/70 transition-colors hover:text-white"
+            >
+              Ecstasy Technologies
+            </a>
+          </span>
         </div>
       </div>
     </footer>
