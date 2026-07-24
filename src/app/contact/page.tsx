@@ -25,8 +25,7 @@ export default function ContactPage() {
             <div>
               <span className="font-bold text-brand-ink">Tel:</span>{' '}
               <a href="tel:+233244066999">0244 066999</a> ·{' '}
-              <a href="tel:+233201185123">0201 185123</a> ·{' '}
-              <a href="tel:+233241878537">0241 878537</a>
+              <a href="tel:+233201185123">0201 185123</a>
             </div>
             <div>
               <span className="font-bold text-brand-ink">Email:</span>{' '}

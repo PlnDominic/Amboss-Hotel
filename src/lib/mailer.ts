@@ -143,7 +143,7 @@ function renderEmailDocument(options: { previewText: string; eyebrow: string; he
                 ANBOSS HOTEL
               </div>
               <div style="margin-top:10px;font-family:${SANS};font-size:12px;color:#e6ded5;line-height:1.8">
-                0244 066999 &middot; 0201 185123 &middot; 0241 878537<br />
+                0244 066999 &middot; 0201 185123<br />
                 info@anbosshotel.com
               </div>
             </td>

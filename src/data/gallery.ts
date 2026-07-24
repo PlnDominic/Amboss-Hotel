@@ -23,13 +23,6 @@ export const galleryImages: GalleryImage[] = [
     sizes: '(max-width: 640px) 50vw, 25vw',
   },
   { id: 'room-interior', label: 'Guest room interior', src: '/gallery-room.webp' },
-  {
-    id: 'wardrobe',
-    label: 'Wardrobe',
-    src: '/gallery/optimized/wardrobe-1200.webp',
-    variantBase: '/gallery/optimized/wardrobe',
-    sizes: '(max-width: 640px) 50vw, 25vw',
-  },
   { id: 'courtyard', label: 'Courtyard & porch', src: '/hotel-courtyard.webp' },
   { id: 'facade', label: 'Hotel façade', src: '/hotel-facade.webp' },
 ];

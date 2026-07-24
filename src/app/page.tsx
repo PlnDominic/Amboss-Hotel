@@ -141,7 +141,7 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {/* Column 1 */}
             <div className="flex flex-col gap-6">
-              {[galleryImages[0], galleryImages[4], galleryImages[6]].map((img, idx) => (
+              {[galleryImages[0], galleryImages[1]].map((img, idx) => (
                 <div
                   key={img.id}
                   className={`group relative overflow-hidden rounded-none bg-black/30 shadow-md ${
@@ -201,7 +201,7 @@ export default function HomePage() {
 
             {/* Column 3 */}
             <div className="flex flex-col gap-6">
-              {[galleryImages[3], galleryImages[1]].map((img, idx) => (
+              {[galleryImages[3], galleryImages[4]].map((img, idx) => (
                 <div
                   key={img.id}
                   className={`group relative overflow-hidden rounded-none bg-black/30 shadow-md ${
