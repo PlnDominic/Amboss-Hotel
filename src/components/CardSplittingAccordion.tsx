@@ -32,24 +32,31 @@ const FAQ_ITEMS: AccordionItem[] = [
   },
   {
     id: 3,
-    title: 'Do you offer Kumasi Airport pickup shuttle service?',
+    title: 'Can I rent the hotel courtyard or floor for social events?',
     icon: <PiHandTap className="-rotate-20 size-6 md:size-[1.625rem]" />,
+    content:
+      'Yes! Our spacious hotel courtyard and open event grounds are available for rental for social occasions including weddings, naming ceremonies, birthday parties, and corporate receptions. Contact our team for custom event packages.',
+  },
+  {
+    id: 4,
+    title: 'Do you offer Kumasi Airport pickup shuttle service?',
+    icon: <Send className="size-6 md:size-[1.625rem]" />,
     content:
       'Yes, we provide direct one-way or round-trip shuttle pickups from Kumasi Airport to the hotel in Santasi Apre. You can easily add shuttle service when booking online.',
   },
   {
-    id: 4,
+    id: 5,
     title: 'What payment options are available?',
-    icon: <Send className="size-6 md:size-[1.625rem]" />,
+    icon: <IoIosTimer className="size-6 md:size-[1.625rem]" />,
     content:
       'We accept Cash at check-in, Mobile Money (MTN MoMo, Telecel Cash, AT Money), and major credit/debit cards for your convenience.',
   },
   {
-    id: 5,
+    id: 6,
     title: 'How do I locate Anboss Hotel in Kumasi?',
-    icon: <IoIosTimer className="size-6 md:size-[1.625rem]" />,
+    icon: <HiCursorArrowRipple className="size-6 md:size-[1.625rem]" />,
     content:
-      'We are located in Santasi Apre, Kumasi, Ghana. Our official digital address is Ghana Post GPS: AG-0666-2011. You can find us on Google Maps or contact front desk at +233 (0)541-886633.',
+      'We are located in Santasi Apre, Kumasi, Ghana. Our official digital address is Ghana Post GPS: AG-0666-2011 (Postal: SN 284, Santasi). You can find us on Google Maps or contact front desk at +233 (0)541-886633.',
   },
 ];
 
@@ -147,7 +154,7 @@ export default function CardSplittingAccordionDemo() {
         </h2>
         <FlourishDivider />
         <p className="mx-auto mt-3 mb-12 max-w-[620px] text-xs md:text-sm text-brand-muted leading-relaxed">
-          Find quick answers to common questions about reservations, check-in policies, room amenities, and hotel location in Kumasi.
+          Find quick answers to common questions about room reservations, courtyard event rentals, check-in policies, and hotel location in Kumasi.
         </p>
 
         <AccordionApp />
