@@ -18,7 +18,7 @@ export default function Logo({ dark }: LogoProps) {
 
   const tagline = (
     <span
-      className="mt-0.5 text-[10px] leading-none tracking-wide text-brand-muted-2"
+      className="mt-0.5 text-[8px] leading-none tracking-wide text-brand-muted-2"
       style={{ fontFamily: 'Aptos, sans-serif' }}
     >
       Home Sweet Home
