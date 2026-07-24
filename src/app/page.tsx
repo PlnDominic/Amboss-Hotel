@@ -5,6 +5,7 @@ import Link from 'next/link';
 import FlourishDivider from '@/components/FlourishDivider';
 import QuickSearchBar from '@/components/QuickSearchBar';
 import TestimonialsSlider from '@/components/TestimonialsSlider';
+import CardSplittingAccordionDemo from '@/components/CardSplittingAccordion';
 import RoomImage from '@/components/RoomImage';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import { rooms } from '@/data/rooms';
@@ -128,7 +129,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* RESTORED GALLERY SECTION WITH STAGGERED MOSAIC LAYOUT (Sharp Square Edges) */}
+      {/* GALLERY SECTION WITH STAGGERED MOSAIC LAYOUT */}
       <section className="bg-brand-surface py-20 px-6">
         <div className="mx-auto max-w-[1240px] text-center">
           <span className="font-script text-3xl text-brand-accent">A Closer Look</span>
@@ -231,6 +232,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* CARD SPLITTING ACCORDION FAQ SECTION */}
+      <CardSplittingAccordionDemo />
 
       {/* CLASSY TESTIMONIALS SLIDER */}
       <TestimonialsSlider />

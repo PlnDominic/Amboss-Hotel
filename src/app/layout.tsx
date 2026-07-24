@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Archivo, Work_Sans, Playfair_Display, Great_Vibes } from 'next/font/google';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
@@ -110,6 +111,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd />
       </head>
       <body className="overflow-x-clip bg-white font-sans text-brand-ink antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6JVRZP6SEW"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-6JVRZP6SEW');
+          `}
+        </Script>
         <Header />
         {children}
         <Footer />
